@@ -1,0 +1,81 @@
+{
+  "name": "startkit-app",
+  "version": "0.0.0",
+  "description": "is a startkit with react app",
+  "keywords": [
+    "startkit",
+    "app"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.5",
+    "classname": "0.0.0",
+    "font-awesome": "^4.4.0",
+    "history": "^1.13.0",
+    "lodash": "^3.10.1",
+    "normalize.css": "^3.0.3",
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2",
+    "react-redux": "^4.0.0",
+    "react-router": "^1.0.0",
+    "redux": "^3.0.4",
+    "redux-thunk": "^1.0.0"
+  },
+  "scripts": {
+    "start": "gulp dev",
+    "build": "gulp build",
+    "dev": "concurrent -k -r \"gulp dev\""
+  },
+  "main": "app/build/app.js",
+  "repository": {
+    "type": "git",
+    "url": "git@git.oschina.net:yuesong/startkit-app.git"
+  },
+  "author": "eyas",
+  "license": "BSD-3-Clause",
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0",
+      "react"
+    ]
+  },
+  "devDependencies": {
+    "autoprefixer-loader": "^3.1.0",
+    "babel": "^6.0.15",
+    "babel-core": "^6.1.4",
+    "babel-eslint": "^4.1.5",
+    "babel-loader": "^6.1.0",
+    "babel-preset-es2015": "^6.1.4",
+    "babel-preset-react": "^6.1.4",
+    "babel-preset-stage-0": "^6.1.2",
+    "bower": "^1.6.5",
+    "colors": "^1.1.2",
+    "concurrently": "^0.1.1",
+    "css-loader": "^0.22.0",
+    "eslint": "^1.9.0",
+    "eslint-plugin-react": "^3.8.0",
+    "file-loader": "^0.8.4",
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^1.1.0",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-util": "^3.0.7",
+    "gulp-webpack": "^1.5.0",
+    "imports-loader": "^0.6.5",
+    "less": "^2.5.3",
+    "less-loader": "^2.2.1",
+    "node-notifier": "^4.3.1",
+    "node-sass": "^3.4.1",
+    "react-hot-loader": "^1.3.0",
+    "redux-devtools": "^3.0.0-beta-3",
+    "redux-devtools-dock-monitor": "^1.0.0-beta-3",
+    "redux-devtools-log-monitor": "^1.0.0-beta-3",
+    "run-sequence": "^1.1.4",
+    "sass-loader": "^3.1.1",
+    "script-loader": "^0.6.1",
+    "style-loader": "^0.13.0",
+    "url-loader": "^0.5.6",
+    "webpack": "^1.12.4",
+    "webpack-dev-server": "^1.12.1"
+  }
+}

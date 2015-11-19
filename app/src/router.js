@@ -2,13 +2,13 @@
 import Router, { Route, IndexRoute } from 'react-router';
 import createHistory  from 'history/lib/createHashHistory';
 import Framework from 'framework';
-import ExampleRouter from 'blog/router';
+import BlogRouter from 'blog/router';
 import Index from 'blog';
 
 const APPRouter = (
   <Router history={createHistory()}>
     <Route path="/" component={Framework}>
-      {ExampleRouter}
+      {BlogRouter}
       <IndexRoute component={Index} />
     </Route>
   </Router>

@@ -23,7 +23,8 @@
   "scripts": {
     "start": "gulp dev",
     "build": "gulp build",
-    "dev": "concurrent -k -r \"gulp dev\""
+    "dev": "concurrent -k --raw \"gulp dev\" \"supervisor server/app\"",
+    "server": "nodemon server/app"
   },
   "main": "app/build/app.js",
   "repository": {

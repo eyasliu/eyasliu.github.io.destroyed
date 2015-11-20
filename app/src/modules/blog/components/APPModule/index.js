@@ -1,3 +1,5 @@
+import List from '../list';
+
 export default class APPModule extends React.Component {
   constructor() {
     super();
@@ -6,7 +8,7 @@ export default class APPModule extends React.Component {
   render() {
     return (
       <div className="blogModule">
-        {this.props.children}
+        {this.props.children || <List />}
       </div>
     );
   }

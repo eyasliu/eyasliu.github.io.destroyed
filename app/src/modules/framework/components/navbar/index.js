@@ -1,4 +1,4 @@
-import { Link } from 'react-router';
+import { IndexLink } from 'react-router';
 
 import style from './style';
 
@@ -26,8 +26,8 @@ export default class Navbar extends React.Component {
           </button>
         </div>
         <ul className="nav navbar-nav">
-          <li><Link to="/blog">首页</Link></li>
-          <li><Link to="/">关于</Link></li>
+          <li><IndexLink to="/">首页</IndexLink></li>
+          <li><IndexLink to="/blog">Blog</IndexLink></li>
         </ul>
       </nav>
     );

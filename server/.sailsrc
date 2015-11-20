@@ -4,5 +4,6 @@
   },
   "hooks": {
     "grunt": false
-  }
+  },
+  "port": 8000
 }

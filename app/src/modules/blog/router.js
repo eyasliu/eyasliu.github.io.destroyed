@@ -1,9 +1,10 @@
 import { Route, IndexRoute } from 'react-router';
 import Blog from './';
+import List from './components/list';
 
 const APPRouter = (
-<Route path="/example" component={Blog}>
-  <IndexRoute component={Blog} />
+<Route path="/blog" component={Blog}>
+  <IndexRoute component={List} />
 </Route>
 );
 

@@ -1,0 +1,23 @@
+.navbar-eyas{
+  background-color: #666;
+  border-radius: 0;
+  margin: 0;
+  border: 0;
+  :global(ul.navbar-nav){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  li{
+    a{
+      color: #fff;
+      &:hover,&:focus{
+        background: #555;
+      }
+    }
+    :global(.active){
+      background: #555;
+    }
+  }
+}

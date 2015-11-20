@@ -1,0 +1,28 @@
+// 页面
+.list-page{
+  
+}
+// 列表
+.post-list{
+  min-height: 300px;
+  padding-top: 30px;
+  .post-list-inner{
+    display: block;
+  }
+}
+// 列表块
+.post-item{
+  width: 100%;
+  padding: 15px;
+  min-height: 150px;
+  border: 1px solid #FFF;
+  margin-bottom: 35px;
+  box-shadow: 0 0 20px 3px #E2E2E2;
+  .item-header{
+    text-align: center;
+    margin-bottom: 15px;
+    .item-meta>span{
+      padding-right: 15px;
+    }
+  }
+}

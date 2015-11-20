@@ -1,13 +1,13 @@
+import APPModule from './components/APPModule';
 
 export default class Example extends React.Component {
   constructor() {
     super();
   }
-
   render() {
     return (
       <div className="blog">
-        这是example模块
+        <APPModule>{this.props.children}</APPModule>
       </div>
     );
   }

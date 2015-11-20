@@ -24,7 +24,8 @@
     "start": "gulp dev",
     "build": "gulp build",
     "dev": "concurrent -k --raw \"gulp dev\" \"supervisor server/app\"",
-    "server": "nodemon server/app"
+    "server": "supervisor server/app",
+    "client": "gulp dev"
   },
   "main": "app/build/app.js",
   "repository": {

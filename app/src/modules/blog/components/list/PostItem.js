@@ -1,6 +1,7 @@
 import style from './style';
+import {Link} from 'react-router';
 
-export default class PostList extends React.Component {
+export default class PostItem extends React.Component {
   constructor() {
     super();
   }
@@ -10,7 +11,7 @@ export default class PostList extends React.Component {
       <article className={style['post-item']}>
         <div className={style['item-inner']}>
           <div className={style['item-header']}>
-            <h3><a href="#">文章标题文章标题文章标题文章标题</a></h3>
+            <h3><Link to="/blog/detail">文章标题文章标题文章标题文章标题</Link></h3>
             <div className={style['item-meta']}>
               <span className={style.author}>
                 作者：<a href="#">Eyas Liu</a>

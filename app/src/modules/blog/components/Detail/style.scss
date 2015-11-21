@@ -1,0 +1,19 @@
+.detail{
+  min-height: 200px;
+}
+.post{
+  margin: 30px 0;
+  .post-header{
+    text-align: center;
+    h1{
+      font-size: 2em;
+    }
+    .post-meta{
+      margin-bottom: 15px;
+      padding: 0 5em;
+      &>span{
+        margin-right: 15px;
+      }
+    }
+  }
+}

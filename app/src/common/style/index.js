@@ -7,3 +7,4 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 // custom style
 import './global.scss';
+import './content.scss';

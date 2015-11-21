@@ -1,6 +1,6 @@
 {
   "name": "startkit-app",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "is a startkit with react app",
   "keywords": [
     "startkit",
@@ -21,7 +21,7 @@
     "redux-thunk": "^1.0.0"
   },
   "scripts": {
-    "start": "gulp dev",
+    "start": "node server/app",
     "build": "gulp build",
     "dev": "concurrent -k --raw \"gulp dev\" \"supervisor server/app\"",
     "server": "supervisor server/app",

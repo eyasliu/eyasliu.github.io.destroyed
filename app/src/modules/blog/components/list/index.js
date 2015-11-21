@@ -1,6 +1,6 @@
 import style from './style';
-import Brand from '../brand';
-import PostList from './postList';
+import Brand from '../Brand';
+import PostList from './PostList';
 import PageNav from './PageNav';
 
 export default class List extends React.Component {

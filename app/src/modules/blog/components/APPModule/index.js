@@ -1,4 +1,4 @@
-import List from '../list';
+import List from '../List';
 
 export default class APPModule extends React.Component {
   constructor() {

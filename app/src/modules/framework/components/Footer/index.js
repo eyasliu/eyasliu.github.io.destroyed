@@ -1,6 +1,6 @@
 import style from './style';
 
-export default class Navbar extends React.Component {
+export default class Footer extends React.Component {
   constructor() {
     super();
   }

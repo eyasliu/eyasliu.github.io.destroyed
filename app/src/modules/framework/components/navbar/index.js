@@ -1,27 +1,35 @@
 import { IndexLink } from 'react-router';
-
+import { connect } from 'react-redux';
 import style from './style';
 
-export default class Navbar extends React.Component {
+class Navbar extends React.Component {
   constructor() {
     super();
   }
 
   static defaultProps = {
-    text: 'test'
+    data: []
   }
 
   render() {
+    const navItems = [];
+    this.props.data.map((item, index) => {
+      navItems.push(<li key={'navItem-' + index}><IndexLink to={item.link}>{item.name}</IndexLink></li>);
+    });
     return (
       <nav className={cx({
         navbar: true,
         [style['navbar-eyas']]: true
       })}>
         <ul className="nav navbar-nav">
-          <li><IndexLink to="/">首页</IndexLink></li>
-          <li><IndexLink to="/blog">Blog</IndexLink></li>
+          {navItems}
         </ul>
       </nav>
     );
   }
 }
+function mapStateToProps(state) {
+  return state.globals.navbar;
+}
+
+export default connect(mapStateToProps)(Navbar);

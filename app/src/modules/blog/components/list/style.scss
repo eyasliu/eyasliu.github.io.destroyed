@@ -21,8 +21,47 @@
   .item-header{
     text-align: center;
     margin-bottom: 15px;
+    h3{
+      a{
+        color:#000;
+        transition: color 200ms;
+        &:hover{
+          color: #337ab7;
+        }
+      }
+    }
     .item-meta>span{
       padding-right: 15px;
     }
   }
+  .item-permalink{
+    padding:10px 0;
+  }
+  .item-footer{
+    width: 100%;
+    border-top: 1px solid #eee;
+    line-height: 30px;
+    padding:10px 0;
+    .footer-meta{
+      margin-right: 10px;
+      a{
+        padding:0 5px;
+      }
+      span{
+        color: #A9A9A9;
+        padding-right: 10px;
+      }
+    }
+    .footer-left{
+      float: left;
+    }
+    .footer-right{
+      float: right;
+    }
+  }
+}
+
+// 分页
+.page-nav{
+  text-align: center;
 }

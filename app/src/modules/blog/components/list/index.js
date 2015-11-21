@@ -1,6 +1,7 @@
 import style from './style';
 import Brand from '../brand';
 import PostList from './postList';
+import PageNav from './PageNav';
 
 export default class List extends React.Component {
   constructor() {
@@ -14,6 +15,7 @@ export default class List extends React.Component {
                 description="这只是一个博客，现在这个博客还没完成"
          />
         <PostList />
+        <PageNav />
       </div>
     );
   }

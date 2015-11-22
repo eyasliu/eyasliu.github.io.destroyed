@@ -27,7 +27,7 @@
     "server": "supervisor server/app",
     "client": "concurrent -k -r \"babel-node mock\" \"gulp dev\" "
   },
-  "main": "app/build/app.js",
+  "main": "server/app.js",
   "repository": {
     "type": "git",
     "url": "git@git.oschina.net:yuesong/startkit-app.git"

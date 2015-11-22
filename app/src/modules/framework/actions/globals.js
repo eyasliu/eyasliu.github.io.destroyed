@@ -3,11 +3,15 @@ export const FETCH = 'FETCH';
 export function fetchGlobals() {
   return dispatch => {
     fetch(config.server + '/globals/info')
-      .then(res => {
-        console.log(res);
+      .then( res => {
+        if (res.ok) {
+          return res.json();
+        }
+      })
+      .then( json => {
         dispatch({
-          type: 'FEACTSUCCESS',
-          data: res
+          type: 'FEACTGLOBALS',
+          data: json.data
         });
       });
   };

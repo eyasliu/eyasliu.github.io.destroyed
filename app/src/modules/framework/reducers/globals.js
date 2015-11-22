@@ -5,19 +5,20 @@ const initState = {
     footer: 'Power by React. Built & Design by Eyas'
   },
   navbar: {
-    data: [{
-      name: '首页',
-      link: '/'
-    }, {
-      name: '博客',
-      link: '/blog'
-    }, {
-      name: '关于',
-      link: '/about'
-    }]
+    data: []
   }
 };
 
 export default function globals(state = initState, action) {
-  return state;
+  switch (action.type) {
+  case 'FEACTGLOBALS':
+    return {
+      ...state,
+      navbar: {
+        data: action.data
+      }
+    };
+  default:
+    return state;
+  }
 }

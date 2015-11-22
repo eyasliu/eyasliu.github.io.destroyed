@@ -1,4 +1,4 @@
-import { IndexLink } from 'react-router';
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import style from './style';
 
@@ -12,9 +12,10 @@ class Navbar extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     const navItems = [];
     this.props.data.map((item, index) => {
-      navItems.push(<li key={'navItem-' + index}><IndexLink to={item.link}>{item.name}</IndexLink></li>);
+      navItems.push(<li key={'navItem-' + index}><Link to={item.link}>{item.name}</Link></li>);
     });
     return (
       <nav className={cx({

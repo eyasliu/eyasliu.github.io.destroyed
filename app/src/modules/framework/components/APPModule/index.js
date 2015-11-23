@@ -16,9 +16,9 @@ class APPModule extends React.Component {
   render() {
     return (
       <div className="module-container">
-        <Navbar />
+        <Navbar data={this.props.navbar} />
         {this.props.children}
-        <Footer />
+        <Footer data={this.props.info} />
       </div>
       );
   }

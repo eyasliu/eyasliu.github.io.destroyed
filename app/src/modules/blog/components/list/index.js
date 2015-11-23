@@ -1,22 +1,42 @@
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as Actions from 'blog/actions/list';
 import style from './style';
 import Brand from '../Brand';
 import PostList from './PostList';
 import PageNav from './PageNav';
 
-export default class List extends React.Component {
+class List extends React.Component {
   constructor() {
     super();
+  }
+
+  componentWillMount(){
+    this.props.getList(1);
   }
 
   render() {
     return (
       <div className={style['list-page']}>
-        <Brand  title="Eyas Blog"
-                description="这只是一个博客，现在这个博客还没完成"
+        <Brand  title={this.props.title}
+                description={this.props.description}
          />
-        <PostList />
+        <PostList data={this.props.list} />
         <PageNav />
       </div>
     );
   }
 }
+
+function mapActionToProps(state) {
+  return {
+    ...state.globals.info,
+    list: state.blog.list.data
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(Actions, dispatch);
+}
+
+export default connect(mapActionToProps, mapDispatchToProps)(List);

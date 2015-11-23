@@ -1,12 +1,6 @@
 const initState = {
-  info: {
-    title: 'Eyas',
-    description: '这只是一个博客，现在这个博客还没完成',
-    footer: 'Power by React. Built & Design by Eyas'
-  },
-  navbar: {
-    data: []
-  }
+  info: {},
+  navbar: []
 };
 
 export default function globals(state = initState, action) {
@@ -14,9 +8,7 @@ export default function globals(state = initState, action) {
   case 'FEACTGLOBALS':
     return {
       ...state,
-      navbar: {
-        data: action.data
-      }
+      ...action.data
     };
   default:
     return state;

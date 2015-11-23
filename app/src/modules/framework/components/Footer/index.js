@@ -5,11 +5,15 @@ export default class Footer extends React.Component {
     super();
   }
 
+  static defaultProps = {
+    data: {}
+  }
+
   render() {
     return (
       <div className={style.footer}>
         <div className="container">
-          <p>Power by <a href="#">React</a>. Built & Design by Eyas</p>
+          <p>{this.props.data.footer}</p>
         </div>
       </div>
     );

@@ -21,7 +21,7 @@
     "redux-thunk": "^1.0.0"
   },
   "scripts": {
-    "mock": "babel-node --presets es2015 mock",
+    "mock": "nodemon --exec babel-node --presets es2015 mock",
     "start": "node server/app",
     "build": "gulp build",
     "dev": "concurrent -k -r \"gulp dev\" \"babel-node mock\" \"nodemon server/app\"",

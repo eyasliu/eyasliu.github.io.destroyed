@@ -1,5 +1,4 @@
 server.get('/globals/info', {
-  delay: 200,
   data: (params, query) => {
     console.log(params, query);
     return {

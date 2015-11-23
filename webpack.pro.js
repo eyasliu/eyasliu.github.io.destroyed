@@ -10,7 +10,7 @@ module.exports = {
   },
   output: {
     ...common.output,
-    publicPath: '/assets/'
+    publicPath: '/build/'
   },
   resolve: common.resolve,
   module: {

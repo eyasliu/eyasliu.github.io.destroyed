@@ -1,5 +1,5 @@
 const initState = {
-  data:[]
+  data: []
 };
 
 export default function list(state = initState, action) {

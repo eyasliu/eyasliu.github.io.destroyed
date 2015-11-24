@@ -8,7 +8,7 @@ export function getList( paging ) {
       dispatch({
         type: 'FETCHLIST',
         data: json.data
-      })
-    } )
-  }
+      });
+    });
+  };
 }

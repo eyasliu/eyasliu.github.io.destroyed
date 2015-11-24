@@ -11,7 +11,7 @@ class List extends React.Component {
     super();
   }
 
-  componentWillMount(){
+  componentWillMount() {
     this.props.getList(1);
   }
 
@@ -32,7 +32,7 @@ function mapActionToProps(state) {
   return {
     ...state.globals.info,
     list: state.blog.list.data
-  }
+  };
 }
 
 function mapDispatchToProps(dispatch) {

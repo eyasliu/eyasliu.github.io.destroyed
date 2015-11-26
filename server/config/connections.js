@@ -18,8 +18,19 @@
  * For more information on configuration, check out:
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.connections.html
  */
+var path = require('path');
 
 module.exports.connections = {
+
+  /*
+   * sqlite database
+   */
+  sqlitedb: {
+    adapter: 'waterline-sqlite3',
+    type: 'disk',
+    filename: path.join(__dirname, './database/eyasliu.sqlite')
+  },
+
 
   /***************************************************************************
   *                                                                          *
@@ -28,9 +39,9 @@ module.exports.connections = {
   * Installed by default.                                                    *
   *                                                                          *
   ***************************************************************************/
-  localDiskDb: {
-    adapter: 'sails-disk'
-  },
+  // localDiskDb: {
+  //   adapter: 'sails-disk'
+  // },
 
   /***************************************************************************
   *                                                                          *
@@ -42,10 +53,10 @@ module.exports.connections = {
   ***************************************************************************/
   someMysqlServer: {
     adapter: 'sails-mysql',
-    host: 'YOUR_MYSQL_SERVER_HOSTNAME_OR_IP_ADDRESS',
-    user: 'YOUR_MYSQL_USER',
-    password: 'YOUR_MYSQL_PASSWORD',
-    database: 'YOUR_MYSQL_DB'
+    host: '127.0.0.1',
+    user: 'root',
+    password: '',
+    database: 'eyasliu_github_io'
   },
 
   /***************************************************************************

@@ -5,11 +5,8 @@ import Navbar from '../Navbar';
 import Footer from '../Footer';
 
 class APPModule extends React.Component {
-  constructor() {
-    super();
-  }
-
-  componentWillMount() {
+  constructor(props) {
+    super(props);
     this.props.fetchGlobals();
   }
 

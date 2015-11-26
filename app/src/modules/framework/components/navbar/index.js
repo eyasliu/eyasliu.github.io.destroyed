@@ -2,8 +2,8 @@ import { Link } from 'react-router';
 import style from './style';
 
 export default class Navbar extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   static defaultProps = {

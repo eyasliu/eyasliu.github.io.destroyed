@@ -11,17 +11,13 @@ export default class PostList extends React.Component {
   }
 
   render() {
-    const listItems = [];
-    this.props.data.map( (item, index) => {
-      listItems.push(<PostItem key={'post-' + index} data={item} />);
-    });
     return (
       <div className={cx({
         [style['post-list']]: true,
         container: true
       })}>
         <div className={style['post-list-inner']}>
-          {listItems}
+          {util.renderList(this.props.data, item => <PostItem key={'post-' + item.ID} data={item} />)}
         </div>
       </div>
     );

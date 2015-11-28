@@ -11,17 +11,19 @@ export default class Navbar extends React.Component {
   }
 
   render() {
-    const navItems = [];
-    this.props.data.map((item, index) => {
-      navItems.push(<li key={'navItem-' + index}><Link to={item.link}>{item.name}</Link></li>);
-    });
     return (
       <nav className={cx({
         navbar: true,
         [style['navbar-eyas']]: true
       })}>
         <ul className="nav navbar-nav">
-          {navItems}
+          {util.renderList(this.props.data, item => {
+            return (
+              <li key={'navItem-' + item.id}>
+                <a target={item.link.indexOf('://') > 0 ? '_blank' : '_self'} href={item.link}>{item.name}</a>
+              </li>
+            );
+          })}
         </ul>
       </nav>
     );

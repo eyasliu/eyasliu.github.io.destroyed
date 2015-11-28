@@ -12,14 +12,15 @@ export default class PostItem extends React.Component {
 
   render() {
     const { data } = this.props;
+    const category = util.renderList(data.terms.category, item => <a key={'category-' + item.ID} href="javascript:">{item.name}</a>);
     return (
       <article className={style['post-item']}>
         <div className={style['item-inner']}>
           <div className={style['item-header']}>
-            <h3><Link to={data.permalink}>{ data.title }</Link></h3>
+            <h3><a href={'#/blog/detail/' + data.ID}>{ data.title }</a></h3>
             <div className={style['item-meta']}>
               <span className={style.author}>
-                作者：<a href="#">{data.author}</a>
+                作者：<a href="javascript:">{data.author.nickname}</a>
               </span>
               <span className={style.author}>
                 2015-11-20
@@ -27,18 +28,16 @@ export default class PostItem extends React.Component {
             </div>
           </div>
           <div className={style['item-content']}>
-            <p>{data.content}</p>
+            <p dangerouslySetInnerHTML={{__html: util.cutStr(data.content, 250)}} />
           </div>
           <div className={style['item-permalink']}>
-            <a href="#" className="btn btn-default btn-sm">阅读全文</a>
+            <a href={'#/blog/detail/' + data.ID} className="btn btn-default btn-sm">阅读全文</a>
           </div>
           <div className={style['item-footer']}>
             <div className={style['footer-left']}>
               <div className={style['footer-meta']}>
                 <span><i className="fa fa-folder-open-o"></i></span>
-                <a href="#">前端</a>
-                <a href="#">node js</a>
-                <a href="#">开发模式</a>
+                {category}
               </div>
             </div>
             <div className={style['footer-right']}>

@@ -1,3 +1,5 @@
 node_modules
 *.log
 /local.js
+bower_components
+*.sqlite

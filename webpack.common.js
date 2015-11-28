@@ -3,7 +3,7 @@ import path from 'path';
 
 const commonConfig = {
   resolve: {
-    root: path.join(__dirname, 'client/vendor'),
+    root: path.join(__dirname, 'bower_components'),
     extensions: ['', '.js', '.jsx', '.css', '.scss'],
     alias: {
       client: path.join(__dirname, 'app/client'),

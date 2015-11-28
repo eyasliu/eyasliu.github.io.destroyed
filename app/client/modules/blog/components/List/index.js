@@ -5,6 +5,7 @@ import style from './style';
 import Brand from '../Brand';
 import PostList from './PostList';
 import PageNav from './PageNav';
+import Loading from 'common/components/loading';
 
 class List extends React.Component {
   constructor() {
@@ -18,11 +19,11 @@ class List extends React.Component {
   render() {
     return (
       <div className={style['list-page']}>
-        <Brand  title={this.props.title}
-                description={this.props.description}
-         />
-        <PostList data={this.props.list} />
-        <PageNav />
+        <Brand
+          title={this.props.title}
+          description={this.props.description}
+        />
+        {this.props.list.length ? <PostList data={this.props.list} /> : <Loading />}
       </div>
     );
   }

@@ -12,6 +12,7 @@
     "crypto": "0.0.3",
     "font-awesome": "^4.4.0",
     "history": "^1.13.0",
+    "loaders.css": "^0.1.1",
     "lodash": "^3.10.1",
     "normalize.css": "^3.0.3",
     "react": "^0.14.2",

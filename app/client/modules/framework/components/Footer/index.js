@@ -13,7 +13,7 @@ export default class Footer extends React.Component {
     return (
       <div className={style.footer}>
         <div className="container">
-          <p>{this.props.data.footer}</p>
+          <p dangerouslySetInnerHTML={{__html: this.props.data.footer}} />
         </div>
       </div>
     );

@@ -9,6 +9,7 @@ export default class Detail extends React.Component {
   constructor(props) {
     super(props);
     this.props.getPost(this.props.params.id);
+    document.body(50);
   }
   render() {
     const { post } = this.props;

@@ -9,6 +9,7 @@
   "dependencies": {
     "bootstrap": "^3.3.5",
     "classname": "0.0.0",
+    "crypto": "0.0.3",
     "font-awesome": "^4.4.0",
     "history": "^1.13.0",
     "lodash": "^3.10.1",
@@ -18,17 +19,18 @@
     "react-redux": "^4.0.0",
     "react-router": "^1.0.0",
     "redux": "^3.0.4",
-    "redux-thunk": "^1.0.0"
+    "redux-thunk": "^1.0.0",
+    "waterline-sqlite3": "^0.12.4"
   },
   "scripts": {
     "mock": "nodemon --exec babel-node --presets es2015 mock",
-    "start": "node server/app",
+    "start": "node app/server/app",
     "build": "gulp build",
-    "dev": "concurrent -k -r \"gulp dev\" \"babel-node mock\" \"nodemon server/app\"",
-    "server": "nodemon server/app",
+    "dev": "concurrent -k -r \"gulp dev\" \"babel-node mock\" \"nodemon app/server/app\"",
+    "server": "nodemon app/server/app",
     "front": "concurrent -k -r \"nodemon --exec babel-node --presets es2015 mock\" \"gulp dev\""
   },
-  "main": "server/app.js",
+  "main": "app/server/app.js",
   "repository": {
     "type": "git",
     "url": "git@git.oschina.net:yuesong/startkit-app.git"

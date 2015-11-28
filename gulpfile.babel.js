@@ -51,7 +51,7 @@ gulp.task('dev', ()=>{
 });
 
 gulp.task('lint', () => {
-  return gulp.src(['./*.js', 'app/src/**/*.js', 'app/src/**/*.jsx', '!app/src/vendor/**/*'])
+  return gulp.src(['./*.js', 'app/client/**/*.js', 'app/client/**/*.jsx', '!app/client/vendor/**/*'])
     .pipe($.eslint({
       globals: {
         'React': true,
@@ -83,7 +83,7 @@ gulp.task('lint', () => {
 
 // build
 gulp.task('build', ['clean'], ()=>{
-  gulp.src('src/app.js')
+  gulp.src('app/client/app.js')
     .pipe(gulpWebpack(webpackProConfig))
     .pipe(gulp.dest('./build'));
 });

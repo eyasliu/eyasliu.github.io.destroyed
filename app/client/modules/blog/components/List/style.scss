@@ -36,6 +36,8 @@
   }
   .item-content *{
     font-size: 1em;
+    white-space: pre-line;
+    word-break: break-word;
   }
   .item-permalink{
     padding:10px 0;

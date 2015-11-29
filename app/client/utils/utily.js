@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import moment from './moment';
 
 module.exports = {
   /*
@@ -48,5 +49,22 @@ module.exports = {
     }
     console.error('param is not an Array');
     return false;
+  },
+
+  /*
+   * 日期转换为相对时间
+   */
+  dateText( date ) {
+    const standard = moment(date).format('YYYY-MM-DD hh:mm:ss a');
+    return moment(standard, 'YYYY-MM-DD hh:mm:ss a').endOf('day').fromNow();
+  },
+
+  /*
+  * 日期格式化
+  */
+  dateFormate(date, formate) {
+    return moment(date).format(formate);
   }
+
+
 };

@@ -23,7 +23,7 @@ export default class PostItem extends React.Component {
                 作者：<a href="javascript:">{data.author.nickname}</a>
               </span>
               <span className={style.author}>
-                2015-11-20
+                {util.dateFormate(data.date, 'YYYY-MM-DD hh:mm:ss')}
               </span>
             </div>
           </div>

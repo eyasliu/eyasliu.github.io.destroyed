@@ -9,6 +9,11 @@ export default function post(state = initState, action) {
       ...state,
       data: action.data
     };
+  case 'GETPOST':
+    return {
+      ...state,
+      data: action.data
+    };
   default:
     return state;
   }

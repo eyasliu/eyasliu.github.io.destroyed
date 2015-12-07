@@ -4,6 +4,7 @@ import path from 'path';
 import config from './config';
 
 module.exports = {
+  context: path.join(__dirname,'../'),
   entry: {
     app: [
       `webpack-dev-server/client?http://${config.host}:${config.clientPort}`,
@@ -12,7 +13,7 @@ module.exports = {
     ]
   },
   output: {
-    path: path.join(__dirname, 'build'),
+    path: path.join(__dirname, '../build'),
     filename: '[name].js',
     publicPath: `http://${config.host}:${config.clientPort}/build/`
   },
@@ -23,8 +24,8 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         loaders: ['react-hot', 'babel?cacheDirectory=true'],
-        include: [path.join(__dirname, 'app/client'), path.join(__dirname, './config')],
-        exclude: [path.join(__dirname, 'node_modules'), path.join(__dirname, 'app/client/vendor')]
+        include: [path.join(__dirname, '../app/client'), path.join(__dirname, 'config')],
+        exclude: [path.join(__dirname, '../node_modules'), path.join(__dirname, '../app/client/vendor')]
       }
     ]
   },

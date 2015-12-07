@@ -51,7 +51,7 @@ gulp.task('dev', ()=>{
 });
 
 gulp.task('lint', () => {
-  return gulp.src(['./*.js', 'app/client/**/*.js', 'app/client/**/*.jsx', '!app/client/vendor/**/*'])
+  return gulp.src(['./*.js', 'app/client/**/*.js', 'app/client/**/*.jsx', 'app/client/**/*.css', 'app/client/**/*.scss', '!app/client/vendor/**/*'])
     .pipe($.eslint({
       globals: {
         'React': true,

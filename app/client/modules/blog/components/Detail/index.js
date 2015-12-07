@@ -13,13 +13,12 @@ export default class Detail extends React.Component {
   }
   render() {
     const { post } = this.props;
-    console.log( this.props.params.id == post.ID );
     return (
       <div className={cx({
         [style.detail]: true,
         container: true
       })}>
-        {this.props.params.id == post.ID ? (<Post post={post} />) : (<Loading />) }
+        {parseInt(this.props.params.id) === post.ID ? (<Post post={post} />) : (<Loading />) }
       </div>
     );
   }

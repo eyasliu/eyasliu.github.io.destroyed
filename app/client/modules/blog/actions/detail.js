@@ -1,19 +1,4 @@
-export function getPost( id ) {
-  return dispatch => {
-    let postData = JSON.parse(localStorage.getItem('post-' + id));
-
-    if(postData){
-      dispatch({
-        type: 'GETPOST',
-        data: postData
-      });
-    }else{
-      fetchPost( id )(dispatch);
-    }
-  };
-}
-
-export function fetchPost( id ) {
+export function fetchPost( id, oldData ) {
   return dispatch => {
     fetch('http://eyasweb.com/wp-json/posts/' + id)
       .then(res => {
@@ -21,10 +6,23 @@ export function fetchPost( id ) {
       })
       .then( json => {
         localStorage.setItem('post-' + id, JSON.stringify(json));
-        dispatch({
+        !oldData && dispatch({
           type: 'GETPOST',
           data: json
         });
       });
+  };
+}
+
+export function getPost( id ) {
+  return dispatch => {
+    const postData = JSON.parse(localStorage.getItem('post-' + id));
+    if (postData) {
+      dispatch({
+        type: 'GETPOST',
+        data: postData
+      });
+    }
+    fetchPost(id, postData)(dispatch);
   };
 }

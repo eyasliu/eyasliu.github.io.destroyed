@@ -1,18 +1,3 @@
-export function getList( paging ) {
-  return dispatch => {
-    fetch('http://eyasweb.com/wp-json/posts?filter[posts_per_page]=100')
-    .then(res => {
-      return res.json();
-    })
-    .then( json => {
-      dispatch({
-        type: 'FETCHLIST',
-        data: json
-      });
-    });
-  };
-}
-
 export function fetchList( id, oldData ) {
   return dispatch => {
     fetch('http://eyasweb.com/wp-json/posts?filter[posts_per_page]=100')
@@ -22,8 +7,8 @@ export function fetchList( id, oldData ) {
       .then( json => {
         localStorage.setItem('post-list', JSON.stringify(json));
         !oldData && dispatch({
-        type: 'FETCHLIST',
-        data: json
+          type: 'FETCHLIST',
+          data: json
         });
       });
   };

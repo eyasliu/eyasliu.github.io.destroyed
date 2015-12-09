@@ -16,13 +16,20 @@ export function fetchPost( id, oldData ) {
 
 export function getPost( id ) {
   return dispatch => {
-    const postData = JSON.parse(localStorage.getItem('post-' + id));
+    let postData = JSON.parse(localStorage.getItem('post-' + id));
+    const postList = JSON.parse(localStorage.getItem('post-list'));
+
+    if (!postData) {
+      postData = _.find(postList, item => item.ID === parseInt(id));
+    }
+
     if (postData) {
       dispatch({
         type: 'GETPOST',
         data: postData
       });
     }
+
     fetchPost(id, postData)(dispatch);
   };
 }

@@ -5,10 +5,6 @@ const initState = {
 export default function post(state = initState, action) {
   switch (action.type) {
   case 'FETCHPOST':
-    return {
-      ...state,
-      data: action.data
-    };
   case 'GETPOST':
     return {
       ...state,

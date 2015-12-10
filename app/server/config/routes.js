@@ -46,5 +46,8 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
   'get /globals/info': 'SettingsController.info',
-  'post /auth/login': 'AuthController.login'
+  'post /auth/login': 'AuthController.login',
+
+  // posts api
+  'post /post/create': 'PostsController.create',
 };

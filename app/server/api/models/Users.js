@@ -27,7 +27,7 @@ module.exports = {
     description: 'text'
   },
 
-  beforeCreate: function(val, cb){
+  beforeCreate(val, cb){
     val.password = crypt.update(val.password);
     cb();
   }

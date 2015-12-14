@@ -23,5 +23,8 @@
     "url": "git://github.com/anonymous node/sails user/server.git"
   },
   "author": "Eyas",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "sails-hook-autoreload": "^0.12.0"
+  }
 }

@@ -7,7 +7,19 @@ import PostList from './PostList';
 import PageNav from './PageNav';
 import Loading from 'common/components/loading';
 
-class List extends React.Component {
+function mapActionToProps(state) {
+  return {
+    ...state.globals.info,
+    list: state.blog.list.data
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(Actions, dispatch);
+}
+
+@connect(mapActionToProps, mapDispatchToProps)
+export default class List extends React.Component {
   constructor() {
     super();
   }
@@ -28,16 +40,3 @@ class List extends React.Component {
     );
   }
 }
-
-function mapActionToProps(state) {
-  return {
-    ...state.globals.info,
-    list: state.blog.list.data
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(Actions, dispatch);
-}
-
-export default connect(mapActionToProps, mapDispatchToProps)(List);

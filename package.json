@@ -6,40 +6,6 @@
     "startkit",
     "app"
   ],
-  "babel": {
-    "presets": [
-      "stage-0",
-      "react",
-      "es2015"
-    ],
-    "plugins": [
-      "transform-class-properties",
-      "transform-decorators-legacy",
-      [
-        "react-transform",
-        {
-          "transforms": [
-            {
-              "transform": "react-transform-hmr",
-              "imports": [
-                "react"
-              ],
-              "locals": [
-                "module"
-              ]
-            },
-            {
-              "transform": "react-transform-catch-errors",
-              "imports": [
-                "react",
-                "redbox-react"
-              ]
-            }
-          ]
-        }
-      ]
-    ]
-  },
   "dependencies": {
     "bootstrap": "^3.3.5",
     "classname": "0.0.0",
@@ -134,6 +100,7 @@
     "redux-devtools": "^3.0.0-beta-3",
     "redux-devtools-dock-monitor": "^1.0.0-beta-3",
     "redux-devtools-log-monitor": "^1.0.0-beta-3",
+    "require-all": "^2.0.0",
     "run-sequence": "^1.1.4",
     "sails": "~0.11.2",
     "sails-disk": "~0.10.0",

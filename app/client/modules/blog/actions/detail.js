@@ -33,3 +33,12 @@ export function getPost( id ) {
     fetchPost(id, postData)(dispatch);
   };
 }
+
+export function toDetail(id) {
+  return dispatch => {
+    dispatch({
+      type: 'LINKTODETAIL',
+      id: id
+    });
+  };
+}

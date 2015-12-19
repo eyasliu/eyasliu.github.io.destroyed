@@ -1,6 +1,6 @@
 import gulp from 'gulp';
 import util from 'gulp-util';
-import childProcess from 'child_process';
+import {exec} from 'child_process';
 import del from 'del';
 import webpack from 'webpack';
 import gulpWebpack from 'gulp-webpack';
@@ -11,7 +11,6 @@ import WebpackDevServer from 'webpack-dev-server';
 import webpackDevConfig from './config/webpack.dev.js';
 import webpackProConfig from './config/webpack.pro.js';
 import config from './config/config';
-
 
 const $ = require('gulp-load-plugins')();
 
@@ -39,7 +38,7 @@ gulp.task('dev', ()=>{
     util.log(`webpack was listenning: http://${config.host}:${config.clientPort}`);
   });
 });
-
+// console.log(notifier);
 gulp.task('lint', () => {
   return gulp.src(['./*.js', 'app/client/**/*.js', 'app/client/**/*.jsx', '!app/client/vendor/**/*'])
     .pipe($.eslint({
@@ -60,6 +59,16 @@ gulp.task('lint', () => {
           title: 'ESLint Error',
           wait: true,
           message: `Line ${lineNumber}: ${message} (${relativeFilename})`
+        }, (err, res) => {
+          console.log('==============>',res.startsWith('Act'));
+          this.on('click', obj => {
+            exec(`subl --command open_file ${fileName}:${lineNumber}`);
+          })
+          // err && console.log(err);
+          // if(res.startsWith('Activate')) {
+          //   console.log('=====================================>>>>>>>')
+            // exec(`subl --command open_file ${fileName}:${lineNumber}`);
+          // }
         });
       }
     }))

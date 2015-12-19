@@ -29,7 +29,7 @@
     "whatwg-fetch": "^0.10.1"
   },
   "scripts": {
-    "mock": "nodemon --exec babel-node --presets es2015 mock",
+    "mock": "nodemon mock",
     "start": "node app/server/app",
     "build": "gulp build",
     "dev": "concurrent -k -r \"gulp dev\" \"babel-node mock\" \"nodemon app/server/app\"",

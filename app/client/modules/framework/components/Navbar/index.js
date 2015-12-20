@@ -27,7 +27,7 @@ export default class Navbar extends React.Component {
         [style['navbar-eyas']]: true
       })}>
         <ul className="nav navbar-nav">
-          {this.props.isDetail? (
+          {this.props.isDetail ? (
             <li key={'navItem-goback'}>
               <a  onClick={() => history.go(-1)}
                   className={style.goback}
@@ -35,7 +35,7 @@ export default class Navbar extends React.Component {
                 <i className="glyphicon glyphicon-chevron-left"></i>返回
               </a>
             </li>
-            ):''}
+            ) : ''}
           {util.renderList(this.props.data, item => {
             return (
               <li key={'navItem-' + item.id}>

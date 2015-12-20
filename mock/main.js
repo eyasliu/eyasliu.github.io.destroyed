@@ -6,12 +6,6 @@ global.server = new Server({
   parser: Mock.mock
 })
 
-// 这里如果用 import 语法会报错
-// require('./globals');
-// require('./posts');
-
-// 启动模拟数据服务
-
 module.exports = () => {
     requireAll({
       dirname     :  __dirname + '/api',

@@ -15,6 +15,7 @@
     "history": "^1.13.0",
     "loaders.css": "^0.1.1",
     "lodash": "^3.10.1",
+    "marked": "^0.3.3",
     "moment": "^2.10.6",
     "normalize.css": "^3.0.3",
     "passport": "^0.3.2",

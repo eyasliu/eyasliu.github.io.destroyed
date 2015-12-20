@@ -2,7 +2,7 @@ import style from './style.scss';
 import Item from './Item';
 
 export default class List extends React.Component {
-  constructor(){
+  constructor() {
     super();
   }
 
@@ -10,18 +10,18 @@ export default class List extends React.Component {
     return (
 <div>
   <div className="list-group">
-    <Item></Item>
-    <Item></Item>
-    <Item></Item>
-    <Item></Item>
-    <Item></Item>
-    <Item></Item>
-    <Item></Item>
-    <Item></Item>
-    <Item></Item>
-    <Item></Item>
+    <Item />
+    <Item />
+    <Item />
+    <Item />
+    <Item />
+    <Item />
+    <Item />
+    <Item />
+    <Item />
+    <Item />
   </div>
 </div>
-    )
+    );
   }
 }

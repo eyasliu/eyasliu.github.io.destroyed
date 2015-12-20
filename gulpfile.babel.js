@@ -59,16 +59,6 @@ gulp.task('lint', () => {
           title: 'ESLint Error',
           wait: true,
           message: `Line ${lineNumber}: ${message} (${relativeFilename})`
-        }, (err, res) => {
-          console.log('==============>',res.startsWith('Act'));
-          this.on('click', obj => {
-            exec(`subl --command open_file ${fileName}:${lineNumber}`);
-          })
-          // err && console.log(err);
-          // if(res.startsWith('Activate')) {
-          //   console.log('=====================================>>>>>>>')
-            // exec(`subl --command open_file ${fileName}:${lineNumber}`);
-          // }
         });
       }
     }))

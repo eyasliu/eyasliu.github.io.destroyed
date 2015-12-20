@@ -12,7 +12,8 @@ const commonConfig = {
       modules: path.join(__dirname, '../app/client/modules'),
       utils: path.join(__dirname, '../app/client/utils'),
       framework: path.join(__dirname, '../app/client/modules/framework'),
-      blog: path.join(__dirname, '../app/client/modules/blog')
+      blog: path.join(__dirname, '../app/client/modules/blog'),
+      admin: path.join(__dirname, '../app/client/modules/admin'),
     }
   },
   output: {

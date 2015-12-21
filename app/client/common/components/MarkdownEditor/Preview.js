@@ -1,4 +1,5 @@
 import marked from 'marked';
+import style from './style/preview.scss';
 
 // marked.setOptions({
 //   renderer: new marked.Renderer(),
@@ -13,8 +14,6 @@ import marked from 'marked';
 export default class Preview extends React.Component {
   constructor(props) {
     super(props);
-
-    
   }
 
   static defaultProps = {
@@ -23,11 +22,10 @@ export default class Preview extends React.Component {
 
   render() {
     const {text} = this.props;
-    // console.log(this.props);
     return (
-<div dangerouslySetInnerHTML={{__html: marked(text)}}>
-
-</div>
+      <div className={cx(this.props.className, style.preview)}>
+        <div className="post-content" dangerouslySetInnerHTML={{__html: marked(text)}} />
+      </div>
     );
   }
 }

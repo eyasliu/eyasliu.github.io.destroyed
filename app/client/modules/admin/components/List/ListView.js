@@ -10,16 +10,7 @@ export default class List extends React.Component {
     return (
 <div>
   <div className="list-group">
-    <Item />
-    <Item />
-    <Item />
-    <Item />
-    <Item />
-    <Item />
-    <Item />
-    <Item />
-    <Item />
-    <Item />
+    {util.renderList(this.props.data, item => <Item key={'post-' + item.ID} data={item} />)}
   </div>
 </div>
     );

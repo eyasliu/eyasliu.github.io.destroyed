@@ -22,7 +22,15 @@ const commonConfig = {
     publicPath: '/build/'
   },
   module: {
+    noParse: [
+      // path.join(__dirname, "../node_modules", "codemirror/mode/"),
+      path.join(__dirname, "../node_modules", "emmet-codemirror/dist")
+    ],
     loaders: [
+      // {
+      //   test: /\.html$/,
+      //   loader: 'html',
+      // },
       {
         test: /\.css$/,
         loader: 'style-loader!css-loader?modules&importLoaders=2&localIdentName=[local]!autoprefixer-loader'

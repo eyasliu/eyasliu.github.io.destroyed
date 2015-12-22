@@ -14,6 +14,7 @@ module.exports = {
   },
   resolve: common.resolve,
   module: {
+    noParse: common.module.noParse,
     loaders: [
       ...common.module.loaders,
       {

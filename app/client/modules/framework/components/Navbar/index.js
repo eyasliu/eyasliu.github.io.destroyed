@@ -2,17 +2,18 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import style from './style';
 
-function mapActionToProps(state) {
-  return {
-    ...state.globals.info,
-    isDetail: !!state.blog.detail.data
-  };
-}
+// function mapActionToProps(state) {
+//   return {
+//     ...state.globals.info,
+//     isDetail: !!state.blog.detail.data
+//   };
+// }
 
-@connect(mapActionToProps)
+@connect(state => {return {routes:state.routing}})
 export default class Navbar extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props);
   }
 
   static defaultProps = {
@@ -20,17 +21,16 @@ export default class Navbar extends React.Component {
   }
 
   render() {
+    const isDetail = this.props.routes.path.indexOf('blog/detail') != -1;
     return (
       <nav className={cx({
         navbar: true,
         [style['navbar-eyas']]: true
       })}>
         <ul className="nav navbar-nav">
-          {this.props.isDetail ? (
+          {isDetail ? (
             <li key={'navItem-goback'}>
-              <a  onClick={() => history.go(-1)}
-                  className={style.goback}
-              >
+              <a  href="#/blog" className={style.goback} >
                 <i className="glyphicon glyphicon-chevron-left"></i>返回
               </a>
             </li>

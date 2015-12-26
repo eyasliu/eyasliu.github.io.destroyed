@@ -1,3 +1,6 @@
+import { syncReduxAndRouter } from 'redux-simple-router';
+import createHistory  from 'history/lib/createHashHistory';
+
 import 'common/style';
 import APPModule from './components/APPModule';
 import { Provider } from 'react-redux';
@@ -6,6 +9,9 @@ import reducers from './reducers';
 import Devtool from 'utils/DevTools';
 
 const store = createStore()(reducers);
+const history = createHistory();
+
+syncReduxAndRouter(history, store);
 
 export default class FrameWork extends React.Component {
   constructor() {

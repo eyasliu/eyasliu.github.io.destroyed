@@ -30,7 +30,7 @@ module.exports = {
       }
     ]
   },
-  devtool: 'source-map',
+  devtool: 'eval',
   plugins: [
     ...common.plugins,
     new webpack.HotModuleReplacementPlugin()

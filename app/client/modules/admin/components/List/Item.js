@@ -25,7 +25,7 @@ export default class Item extends React.Component {
       <i className="fa fa-trash"></i>
     </a>
   </div>
-  <p className="list-group-item-text" dangerouslySetInnerHTML={{__html:util.cutStr(item.content, 100)}}></p>
+  <p className="list-group-item-text" dangerouslySetInnerHTML={{__html: util.cutStr(item.content, 100)}}></p>
 </div>
     );
   }

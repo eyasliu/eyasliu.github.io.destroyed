@@ -29,7 +29,6 @@ export default class List extends React.Component {
     <div className="panel-body">
       <Header />
       {this.props.listdata.length ? <ListView data={this.props.listdata} /> : <Loading />}
-      
     </div>
   </div>
 </div>

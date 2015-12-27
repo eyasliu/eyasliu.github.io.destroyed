@@ -8,7 +8,8 @@ export default class Editor extends React.Component {
     super();
     this.state = {
       text: '',
-      isPreview: false
+      isPreview: false,
+      name: 'content'
     };
   }
 
@@ -52,7 +53,7 @@ export default class Editor extends React.Component {
     [style[this.props.preview]]: true,
     [style['on-preview']]: this.state.isPreview
   })}>
-    <Textarea className={style.textarea} changeText={::this.changeText} mode="markdown" />
+    <Textarea name={this.props.name} className={style.textarea} changeText={::this.changeText} mode="markdown" />
     <Preview className={style.preview} text={this.state.text} />
   </div>
 </div>

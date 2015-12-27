@@ -9,7 +9,7 @@ import style from './style';
 //   };
 // }
 
-@connect(state => {return {routes:state.routing}})
+@connect(state => {return {routes: state.routing};})
 export default class Navbar extends React.Component {
   constructor(props) {
     super(props);

@@ -27,13 +27,14 @@ export default class Textarea extends React.Component {
     emmetCodeMirror(mycodeMirror);
     mycodeMirror.on('change', (CM, Obj) => {
       this.props.changeText(CM.getValue());
+      this.refs.codemirror.value = CM.getValue();
     });
   }
 
   render() {
     return (
 <div className={cx(style['textarea-container'], this.props.className)}>
-  <textarea name="text" ref="codemirror" onChange={e => this.props.changeText(e.target.value)} className={style['form-control']} rows="6"></textarea>
+  <textarea name={this.props.name} ref="codemirror" onChange={e => this.props.changeText(e.target.value)} className={style['form-control']} rows="6"></textarea>
 </div>
     );
   }

@@ -1,20 +1,21 @@
-import Textarea from './Textarea';
+import Textarea from './Ace';
 import Preview from './Preview';
 
 import style from './style/editor.scss';
 
 export default class Editor extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      text: '',
+      text: props.text,
       isPreview: false,
       name: 'content'
     };
   }
 
   static defaultProps = {
-    preview: 'tab'
+    preview: 'tab',
+    text: ''
   }
 
   changeText(newText) {
@@ -22,12 +23,18 @@ export default class Editor extends React.Component {
     this.setState({
       text: newText
     });
+    return true;
   }
 
   tabTo(target) {
     this.setState({
       isPreview: target === 'preview'
     });
+  }
+  componentWillReceiveProps(nextProp){
+    this.setState({
+      text: nextProp.text
+    })
   }
 
   render() {
@@ -38,10 +45,10 @@ export default class Editor extends React.Component {
           <ul>
             <li className={cx({
               [style.active]: !this.state.isPreview
-            })} onClick={e => {this.tabTo('edit');}}>Edit</li>
+            })} onClick={e => {this.tabTo('edit');}}>编辑</li>
             <li className={cx({
               [style.active]: this.state.isPreview
-            })} onClick={e => {this.tabTo('preview');}}>Preview</li>
+            })} onClick={e => {this.tabTo('preview');}}>预览</li>
           </ul>
         </div>);
     }
@@ -53,7 +60,7 @@ export default class Editor extends React.Component {
     [style[this.props.preview]]: true,
     [style['on-preview']]: this.state.isPreview
   })}>
-    <Textarea name={this.props.name} className={style.textarea} changeText={::this.changeText} mode="markdown" />
+    <Textarea text={this.state.text} name={this.props.name} className={style.textarea} changeText={::this.changeText} mode="markdown" />
     <Preview className={style.preview} text={this.state.text} />
   </div>
 </div>

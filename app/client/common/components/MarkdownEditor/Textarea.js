@@ -10,7 +10,8 @@ export default class Textarea extends React.Component {
 
   static defaultProps = {
     theme: 'monokai',
-    mode: 'markdown'
+    mode: 'markdown',
+    text: ''
   }
 
   componentDidMount() {
@@ -22,6 +23,7 @@ export default class Textarea extends React.Component {
       theme: 'monokai',
       smartIndent: true,
       tabSize: 2,
+      value: this.props.text,
       profile: this.props.mode
     });
     emmetCodeMirror(mycodeMirror);
@@ -34,7 +36,7 @@ export default class Textarea extends React.Component {
   render() {
     return (
 <div className={cx(style['textarea-container'], this.props.className)}>
-  <textarea name={this.props.name} ref="codemirror" onChange={e => this.props.changeText(e.target.value)} className={style['form-control']} rows="6"></textarea>
+  <textarea value={this.props.text} name={this.props.name} ref="codemirror" onChange={e => this.props.changeText(e.target.value)} className={style['form-control']} rows="6"></textarea>
 </div>
     );
   }

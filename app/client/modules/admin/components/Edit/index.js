@@ -1,6 +1,10 @@
 import MarkdownEditor from 'common/components/MarkdownEditor';
+import * as Actions from 'admin/actions/edit';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import Select from 'react-select';
 import formToObj from 'form-to-obj';
+import Loading from 'common/components/loading';
 import _ from 'lodash';
 
 const options = [
@@ -8,17 +12,32 @@ const options = [
           { value: 'two', label: 'Two' }
 ]
 
+@connect(
+  state => {
+    return { item: state.admin.edit.itemdata,routing:state.routing}},
+  dispatch => bindActionCreators(Actions, dispatch)
+)
 export default class Edit extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    console.log(props);
+    this.isNew = props.routing.path === '/admin/new';
+    !this.isNew&&props.fetchEditPost(props.routeParams.id)
+
     this.state = {
-      tags: []
+      tags: [],
+      isReady: this.isNew||(props.routeParams.id == props.item.ID)
     }
   }
 
   submitHandler(e) {
     const formData = formToObj(this.refs.editForm);
-    console.log(formData);
+    console.log(this.props);
+    if(this.isNew){
+      this.props.create(formData);
+    }else{
+      this.props.save(formData);
+    }
     e.preventDefault();
   }
 
@@ -28,12 +47,20 @@ export default class Edit extends React.Component {
     })
   }
 
+  componentWillReceiveProps(nextProp){
+    this.setState({
+      isReady: nextProp.item.ID == this.props.routeParams.id
+    })
+  }
+
   render() {
-    return (
+    const item = this.isNew?{}:this.props.item;
+    const editContent = (
       <form ref="editForm" onSubmit={::this.submitHandler}>
+        {this.isNew?'':<input type="hidden" name="ID" value={item.ID} />}
         <div className="form-group">
           <label forHTML="exampleInputEmail1">标题</label>
-          <input type="text" className="form-control" name="title"  placeholder="title" />
+          <input type="text" className="form-control" name="title" onChange={_.noop} defaultValue={item.title} placeholder="title" />
         </div>
         <div className="form-group">
           <label forHTML="exampleInputPassword1">标签</label>
@@ -51,11 +78,12 @@ export default class Edit extends React.Component {
         <div className="form-group">
           <label forHTML="exampleInputPassword1">内容</label>
           <div className="content">
-            <MarkdownEditor name="content" />
+            <MarkdownEditor preview="tab" name="content" text={item.content} />
           </div>
         </div>
         <button type="submit" className="btn btn-default">Submit</button>
       </form>
-    );
+      );
+    return this.state.isReady?editContent:<Loading />;
   }
 }

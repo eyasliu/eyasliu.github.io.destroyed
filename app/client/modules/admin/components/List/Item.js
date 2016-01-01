@@ -18,7 +18,7 @@ export default class Item extends React.Component {
     <a href="#/admin/edit" className={cx(style.view, 'btn', 'btn-xs', 'btn-info')}>
       <i className="fa fa-eye"></i>
     </a>
-    <a href="#/admin/edit" className={cx(style.edit, 'btn', 'btn-xs', 'btn-primary')}>
+    <a href={"#/admin/edit/"+item.ID} className={cx(style.edit, 'btn', 'btn-xs', 'btn-primary')}>
       <i className="fa fa-edit"></i>
     </a>
     <a href="#/admin/edit" className={cx(style.delete, 'btn', 'btn-xs', 'btn-danger')}>

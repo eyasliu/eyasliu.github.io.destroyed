@@ -19,6 +19,10 @@ export function fetchGlobals() {
             id: 2,
             name: 'Git',
             link: 'http://git.oschina.net/yuesong'
+          }, {
+            id: 3,
+            name: 'Admin',
+            link: '#/admin'
           }
         ]
       }

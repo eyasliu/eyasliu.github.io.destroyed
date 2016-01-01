@@ -23,7 +23,7 @@ const commonConfig = {
   },
   module: {
     noParse: [
-      // path.join(__dirname, "../node_modules", "codemirror/mode/"),
+      path.join(__dirname, "../node_modules", "codemirror/mode/rpm/changes/index.html"),
       path.join(__dirname, "../node_modules", "emmet-codemirror/dist")
     ],
     loaders: [

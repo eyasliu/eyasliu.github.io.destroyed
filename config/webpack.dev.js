@@ -4,7 +4,6 @@ import path from 'path';
 import config from './config';
 
 module.exports = {
-  context: path.join(__dirname,'../'),
   entry: {
     app: [
       `webpack-dev-server/client?http://${config.host}:${config.clientPort}`,
@@ -24,7 +23,7 @@ module.exports = {
       ...common.module.loaders,
       {
         test: /\.(js|jsx)$/,
-        loaders: ['babel?cacheDirectory=true'],
+        loaders: ['babel'],
         include: [path.join(__dirname, '../app/client'), path.join(__dirname, 'config')],
         exclude: [path.join(__dirname, '../node_modules'), path.join(__dirname, '../app/client/vendor')]
       }

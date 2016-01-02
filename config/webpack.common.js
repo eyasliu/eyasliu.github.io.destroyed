@@ -28,10 +28,6 @@ const commonConfig = {
       path.join(__dirname, "../node_modules", "to-markdown/dist/to-markdown.js")
     ],
     loaders: [
-      // {
-      //   test: /\.html$/,
-      //   loader: 'html',
-      // },
       {
         test: /\.css$/,
         loader: 'style-loader!css-loader?modules&importLoaders=2&localIdentName=[local]!autoprefixer-loader'

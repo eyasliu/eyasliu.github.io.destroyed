@@ -6,9 +6,9 @@ const constant = Constant('admin');
 
 export function fetchEditPost(id) {
   return dispatch => {
-    request('http://eyasweb.com/wp-json/posts/'+id)
+    request('http://eyasweb.com/wp-json/posts/' + id)
       .end((err, res) => {
-        res.body.content = toMarkdown(res.body.content)
+        res.body.content = toMarkdown(res.body.content);
         dispatch({
           type: constant.GETPOST,
           data: res.body
@@ -22,7 +22,7 @@ export function create(data){
   return {
     type: constant.CREATE,
     data: data
-  }
+  };
 }
 
 export function save(data = false) {
@@ -30,5 +30,5 @@ export function save(data = false) {
   return {
     type: constant.SAVE,
     data: data
-  }
+  };
 }

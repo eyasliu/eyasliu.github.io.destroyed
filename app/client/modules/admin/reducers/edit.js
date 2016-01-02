@@ -18,12 +18,11 @@ export default function edit(state = initState, action) {
         ...state,
         itemdata: action.data
       };
-    }else{
-      return {
-        ...state,
-        itemdata: {}
-      };
     }
+    return {
+      ...state,
+      itemdata: {}
+    };
     
   default :
     return state;

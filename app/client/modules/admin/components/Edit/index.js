@@ -10,11 +10,15 @@ import _ from 'lodash';
 const options = [
   { value: 'one', label: 'One' },
           { value: 'two', label: 'Two' }
-]
+];
 
 @connect(
   state => {
-    return { item: state.admin.edit.itemdata,routing:state.routing}},
+    return { 
+      item: state.admin.edit.itemdata,
+      routing: state.routing
+    };
+  },
   dispatch => bindActionCreators(Actions, dispatch)
 )
 export default class Edit extends React.Component {
@@ -22,42 +26,42 @@ export default class Edit extends React.Component {
     super(props);
     console.log(props);
     this.isNew = props.routing.path === '/admin/new';
-    !this.isNew&&props.fetchEditPost(props.routeParams.id)
+    !this.isNew && props.fetchEditPost(props.routeParams.id);
 
     this.state = {
       tags: [],
-      isReady: this.isNew||(props.routeParams.id == props.item.ID)
-    }
+      isReady: this.isNew || (props.routeParams.id == props.item.ID)
+    };
   }
 
   submitHandler(e) {
     const formData = formToObj(this.refs.editForm);
     console.log(this.props);
-    if(this.isNew){
+    if (this.isNew) {
       this.props.create(formData);
-    }else{
+    } else {
       this.props.save(formData);
     }
     e.preventDefault();
   }
 
-  handlerChange(value){
+  handlerChange(value) {
     this.setState({
       tags: value
-    })
+    });
   }
 
-  componentWillReceiveProps(nextProp){
+  componentWillReceiveProps(nextProp) {
     this.setState({
       isReady: nextProp.item.ID == this.props.routeParams.id
-    })
+    });
   }
 
   render() {
-    const item = this.isNew?{}:this.props.item;
+    const item = this.isNew ? {} : this.props.item;
     const editContent = (
       <form ref="editForm" onSubmit={::this.submitHandler}>
-        {this.isNew?'':<input type="hidden" name="ID" value={item.ID} />}
+        {this.isNew ? '' : <input type="hidden" name="ID" value={item.ID} />}
         <div className="form-group">
           <label forHTML="exampleInputEmail1">标题</label>
           <input type="text" className="form-control" name="title" onChange={_.noop} defaultValue={item.title} placeholder="title" />
@@ -69,8 +73,7 @@ export default class Edit extends React.Component {
             options={options}
             value={this.state.tags}
             placeholder="请选择文章标签"
-            multi
-            allowCreate={true}
+            multi allowCreate
             noResultsText="没有该选项"
             onChange={::this.handlerChange}
            />
@@ -84,6 +87,6 @@ export default class Edit extends React.Component {
         <button type="submit" className="btn btn-default">Submit</button>
       </form>
       );
-    return this.state.isReady?editContent:<Loading />;
+    return this.state.isReady ? editContent : <Loading />;
   }
 }

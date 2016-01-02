@@ -34,7 +34,7 @@ export default class Editor extends React.Component {
   componentWillReceiveProps(nextProp){
     this.setState({
       text: nextProp.text
-    })
+    });
   }
 
   render() {

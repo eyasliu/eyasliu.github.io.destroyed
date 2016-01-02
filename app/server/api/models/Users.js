@@ -24,7 +24,11 @@ module.exports = {
     email: {
       type: 'email'
     },
-    description: 'text'
+    description: 'text',
+    post: {
+      collection: 'posts',
+      via: 'author'
+    }
   },
 
   beforeCreate(val, cb){

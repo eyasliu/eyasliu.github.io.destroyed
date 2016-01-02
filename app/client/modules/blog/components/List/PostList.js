@@ -17,7 +17,7 @@ export default class PostList extends React.Component {
         container: true
       })}>
         <div className={style['post-list-inner']}>
-          {util.renderList(this.props.data, item => <PostItem key={'post-' + item.ID} data={item} />)}
+          {util.renderList(this.props.data, item => <PostItem key={'post-' + item.id} data={item} />)}
         </div>
       </div>
     );

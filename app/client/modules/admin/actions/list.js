@@ -4,7 +4,7 @@ const constant = Constant('admin');
 
 export function fetchList() {
   return dispatch => {
-    request('http://eyasweb.com/wp-json/posts?filter[posts_per_page]=100')
+    request(config.server + '/post/list')
       .end((err, res) => {
         dispatch({
           type: constant.GETLIST,

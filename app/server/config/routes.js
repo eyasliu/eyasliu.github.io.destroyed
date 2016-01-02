@@ -50,6 +50,6 @@ module.exports.routes = {
 
   // posts api
   'post /post/create': 'PostsController.create',
-  'post /post/list': 'PostsController.list',
+  '/post/list': 'PostsController.list',
   'post /post/remove': 'PostsController.remove',
 };

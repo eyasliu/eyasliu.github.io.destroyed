@@ -1,6 +1,6 @@
 export function fetchList( id, oldData ) {
   return dispatch => {
-    fetch('http://eyasweb.com/wp-json/posts?filter[posts_per_page]=100')
+    fetch(config.server + '/post/list')
       .then(res => {
         return res.json();
       })

@@ -1,6 +1,6 @@
 export function fetchPost( id, oldData ) {
   return dispatch => {
-    fetch('http://eyasweb.com/wp-json/posts/' + id)
+    fetch(config.server + '/post/' + id)
       .then(res => {
         return res.json();
       })

@@ -6,7 +6,7 @@ const constant = Constant('admin');
 
 export function fetchEditPost(id) {
   return dispatch => {
-    request('http://eyasweb.com/wp-json/posts/' + id)
+    request(config.server + '/posts/' + id)
       .end((err, res) => {
         res.body.content = toMarkdown(res.body.content);
         dispatch({

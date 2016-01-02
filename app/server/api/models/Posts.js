@@ -9,12 +9,15 @@ module.exports = {
 
   attributes: {
     title: 'string',
-    author: 'integer',
+    author: {
+        model: 'users'
+    },
     content: 'text',
     excerpt: 'text',
     status: 'string',
     slug: 'string',
-    term: 'array'
+    term: 'array',
+    tags: 'array'
   }
 };
 

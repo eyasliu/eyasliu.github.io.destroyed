@@ -24,7 +24,5 @@
   },
   "author": "Eyas",
   "license": "",
-  "devDependencies": {
-    "sails-hook-autoreload": "^0.12.0"
-  }
+  "devDependencies": {}
 }

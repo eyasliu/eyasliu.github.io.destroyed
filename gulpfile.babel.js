@@ -2,6 +2,7 @@ import gulp from 'gulp';
 import util from 'gulp-util';
 import {exec} from 'child_process';
 import del from 'del';
+import nodemon from 'nodemon';
 import webpack from 'webpack';
 import gulpWebpack from 'gulp-webpack';
 import notifier from 'node-notifier';
@@ -14,8 +15,29 @@ import config from './config/config';
 
 const $ = require('gulp-load-plugins')();
 
-// dev server
-gulp.task('dev', ()=>{
+// dev
+gulp.task('dev', ['server', 'client'], () => {
+  util.log('server is ok, you can dev now.');
+});
+
+
+// server auto reload
+gulp.task('server', ['server-watch'], () => {
+  nodemon({
+    script: './app/server/app.js',
+    ignore: [
+      "./**/*"
+    ]
+  });
+});
+gulp.task('server-watch', () => {
+  gulp.watch(['./app/server/**/*.js', '!./app/server/node_modules/**/*'], () => {
+    nodemon.restart();
+  });
+});
+
+// client server
+gulp.task('client', ()=>{
   const compiler = webpack(webpackDevConfig);
   compiler.plugin('done', (stats) => {
     run('lint');

@@ -25,7 +25,7 @@ module.exports = {
       type: 'email'
     },
     description: 'text',
-    post: {
+    posts: {
       collection: 'posts',
       via: 'author'
     }

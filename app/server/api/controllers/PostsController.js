@@ -7,6 +7,7 @@
 
 module.exports = {
 	create(req, res) {
+    console.log(req.body);
     Posts.create(req).exec((err, created) => {
       console.log(created);
     })
@@ -14,17 +15,17 @@ module.exports = {
   },
 
   list(req, res) {
-    Posts.find().exec((err, posts) => {
+    Posts.find().populate('author').exec((err, posts) => {
       res.json(posts)
-    })
+    });
   },
 
   remove(req, res) {
     let id = req.body.id; 
-    Posts.update({title: '标题123'},{title: '标题123456'}).exec((err, post) => {
+    Posts.update({title: '标题123'}, {title: '标题123456'}).exec((err, post) => {
       console.log(err);
       res.json(post);
-    })
+    });
   }
 
 };

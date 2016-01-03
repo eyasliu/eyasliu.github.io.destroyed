@@ -8,16 +8,29 @@
 module.exports = {
 
   attributes: {
-    title: 'string',
+    title: {
+        type: 'string',
+        defaultsTo: '[无标题]'
+    },
     author: {
-        model: 'users'
+        model: 'users',
+        defaultsTo: 1
     },
     content: 'text',
     excerpt: 'text',
-    status: 'string',
+    status: {
+        type: 'string',
+        defaultsTo: 'active'
+    },
     slug: 'string',
-    term: 'array',
-    tags: 'array'
+    term: {
+        type: 'array',
+        defaultsTo: []
+    },
+    tags: {
+        type: 'array',
+        defaultsTo: []
+    }
   }
 };
 

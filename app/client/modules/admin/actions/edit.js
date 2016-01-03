@@ -18,10 +18,15 @@ export function fetchEditPost(id) {
 }
 
 export function create(data){
-  console.log('I will create a post.', data);
-  return {
-    type: constant.CREATE,
-    data: data
+  return dispatch => {
+    request.post(config.server + '/post/create')
+      .send(data)
+      .end((err, res) => {
+        dispatch({
+          type: constant.CREATE,
+          data: res.body
+        });
+      });
   };
 }
 

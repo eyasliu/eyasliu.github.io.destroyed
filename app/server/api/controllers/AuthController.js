@@ -13,7 +13,7 @@ module.exports = {
    * `AuthController.login()`
    */
   login: function (req, res) {
-    Users.create({
+    User.create({
       id: 3,
       username: 'liuyuesong',
       password: 'iuyuesong',

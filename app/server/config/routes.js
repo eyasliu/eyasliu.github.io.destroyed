@@ -45,11 +45,18 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-  'get /globals/info': 'SettingsController.info',
+  'get /globals/info': 'SettingController.info',
   'post /auth/login': 'AuthController.login',
 
   // posts api
   'post /post/create': 'PostsController.create',
-  '/post/list': 'PostsController.list',
-  'post /post/remove': 'PostsController.remove',
+  '/post/list': 'PostController.list',
+  'post /post/remove': 'PostController.remove',
+
+
+  /*user routing*/
+  '/user/list': 'UserController.list',
+  'post /user/create': 'UserController.create',
+  'DELETE /user/remove': 'UserController.remove',
+  'PUT /user/update': 'UserController.update',
 };

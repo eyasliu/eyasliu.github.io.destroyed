@@ -1,5 +1,5 @@
 /**
-* Users.js
+* User.js
 *
 * @description :: TODO: You might write a short summary of how this model works and what it represents here.
 * @docs        :: http://sailsjs.org/#!documentation/models
@@ -25,15 +25,10 @@ module.exports = {
       type: 'email'
     },
     description: 'text',
-    posts: {
-      collection: 'posts',
+    post: {
+      collection: 'post',
       via: 'author'
     }
-  },
-
-  beforeCreate(val, cb){
-    val.password = crypt.update(val.password);
-    cb();
   }
 };
 

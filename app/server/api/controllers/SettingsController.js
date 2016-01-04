@@ -7,7 +7,7 @@
 
 module.exports = {
 	info: function(req, res) {
-    Settings.find({id:2}).exec(function findCB(err, found){
+    Setting.find({id:2}).exec(function findCB(err, found){
       console.log(found);
     })
     return res.json({

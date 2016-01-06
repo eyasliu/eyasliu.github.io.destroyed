@@ -2,14 +2,14 @@ import MarkdownEditor from 'common/components/MarkdownEditor';
 import * as Actions from 'admin/actions/edit';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import Select from 'react-select';
+import Select from 'common/components/Select';
 import formToObj from 'form-to-obj';
 import Loading from 'common/components/loading';
 import _ from 'lodash';
 
 const options = [
   { value: 'one', label: 'One' },
-          { value: 'two', label: 'Two' }
+  { value: 'two', label: 'Two' }
 ];
 
 @connect(
@@ -29,7 +29,6 @@ export default class Edit extends React.Component {
     !this.isNew && props.fetchEditPost(props.routeParams.id);
 
     this.state = {
-      tags: [],
       isReady: this.isNew || (props.routeParams.id == props.item.ID)
     };
   }
@@ -43,12 +42,6 @@ export default class Edit extends React.Component {
       this.props.save(formData);
     }
     e.preventDefault();
-  }
-
-  handlerChange(value) {
-    this.setState({
-      tags: value
-    });
   }
 
   componentWillReceiveProps(nextProp) {
@@ -67,15 +60,23 @@ export default class Edit extends React.Component {
           <input required type="text" className="form-control" name="title" onChange={_.noop} defaultValue={item.title} placeholder="title" />
         </div>
         <div className="form-group">
+          <label forHTML="exampleInputPassword1">分类</label>
+          <Select
+            name="category"
+            options={options}
+            placeholder="请选择文章分类"
+            multi
+            noResultsText="没有该分类"
+           />
+        </div>
+        <div className="form-group">
           <label forHTML="exampleInputPassword1">标签</label>
           <Select
             name="tags"
             options={options}
-            value={this.state.tags}
             placeholder="请选择文章标签"
             multi allowCreate
             noResultsText="没有该选项"
-            onChange={::this.handlerChange}
            />
         </div>
         <div className="form-group">

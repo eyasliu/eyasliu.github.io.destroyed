@@ -17,13 +17,12 @@ module.exports = {
         defaultsTo: 1
     },
     content: 'text',
-    excerpt: 'text',
     status: {
         type: 'string',
         defaultsTo: 'active'
     },
     slug: 'string',
-    term: {
+    categorys: {
         type: 'array',
         defaultsTo: []
     },

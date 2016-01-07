@@ -57,12 +57,12 @@ export default class Edit extends React.Component {
         {this.isNew ? '' : <input type="hidden" name="ID" value={item.ID} />}
         <div className="form-group">
           <label forHTML="exampleInputEmail1">标题</label>
-          <input required type="text" className="form-control" name="title" onChange={_.noop} defaultValue={item.title} placeholder="title" />
+          <input required type="text" className="form-control" name="title" onChange={_.noop} defaultValue={item.title} placeholder="标题" />
         </div>
         <div className="form-group">
           <label forHTML="exampleInputPassword1">分类</label>
           <Select
-            name="category"
+            name="categorys"
             options={options}
             placeholder="请选择文章分类"
             multi

@@ -12,6 +12,8 @@ import WebpackDevServer from 'webpack-dev-server';
 import webpackDevConfig from './config/webpack.dev.js';
 import webpackProConfig from './config/webpack.pro.js';
 import config from './config/config';
+import fs from 'fs';
+import cheerio from 'cheerio';
 
 const $ = require('gulp-load-plugins')();
 
@@ -90,12 +92,44 @@ gulp.task('lint', () => {
 
 // build
 gulp.task('build', ['clean'], ()=>{
-  gulp.src('app/client/app.js')
-    .pipe(gulpWebpack(webpackProConfig))
-    .pipe(gulp.dest('./build'));
+  const compiler = webpack(webpackProConfig, (err, stats) => {
+    if(err){
+      console.error(err);
+    }else{
+      console.log('build success!!!');
+      setHash(stats.hash);
+    }
+  });
+  // compiler.plugin('done', (err, stats) => {
+  //   console.log(err,stats);
+  // })
+  // compiler.run()
+
+  // gulp.src('app/client/app.js')
+  //   .pipe(gulpWebpack(webpackProConfig))
+  //   .pipe(gulp.dest('./build'));
 });
 
 // build on save
 gulp.task('clean', () => {
   del('build');
 });
+
+gulp.task('hash', () => {
+  setHash('testhash');
+})
+
+function setHash(hash){
+  fs.readFile('./index.html', (err, data) => {
+    const jQuery = cheerio.load(data.toString())
+    const pathScript = '/build/app.js?hash='+hash;
+    jQuery('script').attr('src',pathScript)
+    fs.writeFile('./index.html', jQuery.html(), err => {
+      if(err){
+        console.error(err);
+      }else{
+        console.log('Hash set success: ', hash);
+      }
+    });
+  })
+}

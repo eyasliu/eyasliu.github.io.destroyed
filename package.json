@@ -67,6 +67,7 @@
     "babel-preset-react": "^6.1.4",
     "babel-preset-stage-0": "^6.1.2",
     "bower": "^1.6.5",
+    "cheerio": "^0.19.0",
     "colors": "^1.1.2",
     "concurrently": "^0.1.1",
     "css-loader": "^0.22.0",

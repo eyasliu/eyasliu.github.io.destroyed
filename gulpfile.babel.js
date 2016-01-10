@@ -38,7 +38,7 @@ gulp.task('server', () => {
 
   // 不能同时执行两个 nodemon 任务，只能如此取巧
   exec('gulp mock', {}, (err, out) => {
-    console.log(out)
+    console.log(out);
   });
 });
 
@@ -73,9 +73,8 @@ gulp.task('mock', () => {
     script: './mock/index.js',
     watch: ['./mock/**/*.js', '!./mock/node_modules/**/*'],
     ext: 'js'
-  }).on('restart' , files => {
-    console.log('=============> restart mock server')
   });
+  
   gulp.watch(['./mock/**/*.js', '!./mock/node_modules/**/*'], () => {
     mockServer.restart();
   });

@@ -52,6 +52,7 @@ module.exports.routes = {
   'post /post/create': 'PostsController.create',
   '/post/list': 'PostController.list',
   'post /post/remove': 'PostController.remove',
+  '/post/detail/:id': 'PostController.detail',
 
 
   /*user routing*/

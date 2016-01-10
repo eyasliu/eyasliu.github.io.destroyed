@@ -29,7 +29,7 @@ export default class Edit extends React.Component {
     !this.isNew && props.fetchEditPost(props.routeParams.id);
 
     this.state = {
-      isReady: this.isNew || (props.routeParams.id == props.item.ID)
+      isReady: this.isNew || (props.routeParams.id == props.item.id)
     };
   }
 
@@ -46,7 +46,7 @@ export default class Edit extends React.Component {
 
   componentWillReceiveProps(nextProp) {
     this.setState({
-      isReady: nextProp.item.ID == this.props.routeParams.id
+      isReady: nextProp.item.id == this.props.routeParams.id
     });
   }
 
@@ -54,7 +54,7 @@ export default class Edit extends React.Component {
     const item = this.isNew ? {} : this.props.item;
     const editContent = (
       <form ref="editForm" onSubmit={::this.submitHandler}>
-        {this.isNew ? '' : <input type="hidden" name="ID" value={item.ID} />}
+        {this.isNew ? '' : <input type="hidden" name="id" value={item.id} />}
         <div className="form-group">
           <label forHTML="exampleInputEmail1">标题</label>
           <input required type="text" className="form-control" name="title" onChange={_.noop} defaultValue={item.title} placeholder="标题" />

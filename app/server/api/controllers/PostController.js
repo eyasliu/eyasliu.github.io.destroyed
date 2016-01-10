@@ -7,11 +7,9 @@
 
 module.exports = {
 	create(req, res) {
-    console.log(req.body);
-    Post.create(req).exec((err, created) => {
-      console.log(created);
+    Post.create(req.body).exec((err, created) => {
+      res.json(err || crerated);
     })
-    return res.json(req.body)
   },
 
   list(req, res) {
@@ -19,10 +17,23 @@ module.exports = {
       res.json(posts);
     });
   },
+  detail(req, res){
+    let id = parseInt(req.params.id);
+    Post.findOne({id:1}).exec((err, post) => {
+      res.json(err || post);
+    });
+  },
+  update(req, res){
+    console.log(req);
+    let id = parseInt(req.body.id); 
+    Post.update({id}, req.body).exec((err, post) => {
+      res.json(post);
+    });
+  },
 
   remove(req, res) {
     let id = req.body.id; 
-    Post.update({title: '标题123'}, {title: '标题123456'}).exec((err, post) => {
+    Post.destroy({id}).exec((err, post) => {
       res.json(post);
     });
   }

@@ -6,7 +6,7 @@ const constant = Constant('admin');
 
 export function fetchEditPost(id) {
   return dispatch => {
-    request(config.server + '/posts/' + id)
+    request(config.server + '/post/detail/' + id)
       .end((err, res) => {
         res.body.content = toMarkdown(res.body.content);
         dispatch({

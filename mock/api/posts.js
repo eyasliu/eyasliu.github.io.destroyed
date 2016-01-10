@@ -10,4 +10,4 @@ server.get('/posts/list', {
       }]
     };
   }
-})
+});

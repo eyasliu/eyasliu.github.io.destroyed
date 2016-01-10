@@ -24,17 +24,21 @@ gulp.task('dev', ['server', 'client'], () => {
 
 
 // server auto reload
-gulp.task('server', ['server-watch'], () => {
-  nodemon({
+gulp.task('server', () => {
+  const backendServer = nodemon({
     script: './app/server/app.js',
     ignore: [
       "./**/*"
     ]
   });
-});
-gulp.task('server-watch', () => {
+
   gulp.watch(['./app/server/**/*.js', '!./app/server/node_modules/**/*'], () => {
-    nodemon.restart();
+    backendServer.restart();
+  });
+
+  // 不能同时执行两个 nodemon 任务，只能如此取巧
+  exec('gulp mock', {}, (err, out) => {
+    console.log(out)
   });
 });
 
@@ -62,6 +66,21 @@ gulp.task('client', ()=>{
     util.log(`webpack was listenning: http://${config.host}:${config.clientPort}`);
   });
 });
+
+// mock server 
+gulp.task('mock', () => {
+  const mockServer = nodemon({
+    script: './mock/index.js',
+    watch: ['./mock/**/*.js', '!./mock/node_modules/**/*'],
+    ext: 'js'
+  }).on('restart' , files => {
+    console.log('=============> restart mock server')
+  });
+  gulp.watch(['./mock/**/*.js', '!./mock/node_modules/**/*'], () => {
+    mockServer.restart();
+  });
+});
+
 // console.log(notifier);
 gulp.task('lint', () => {
   return gulp.src(['./*.js', 'app/client/**/*.js', 'app/client/**/*.jsx', '!app/client/vendor/**/*'])
@@ -117,19 +136,19 @@ gulp.task('clean', () => {
 
 gulp.task('hash', () => {
   setHash('testhash');
-})
+});
 
 function setHash(hash){
   fs.readFile('./index.html', (err, data) => {
-    const jQuery = cheerio.load(data.toString())
-    const pathScript = '/build/app.js?hash='+hash;
-    jQuery('script').attr('src',pathScript)
-    fs.writeFile('./index.html', jQuery.html(), err => {
-      if(err){
-        console.error(err);
+    const jQuery = cheerio.load(data.toString());
+    const pathScript = '/build/app.js?hash=' + hash;
+    jQuery('script').attr('src', pathScript);
+    fs.writeFile('./index.html', jQuery.html(), fileErr => {
+      if(fileErr){
+        console.error(fileErr);
       }else{
         console.log('Hash set success: ', hash);
       }
     });
-  })
+  });
 }

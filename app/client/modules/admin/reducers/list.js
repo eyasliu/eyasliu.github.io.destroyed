@@ -12,6 +12,13 @@ export default function list(state = initState, action) {
       ...state,
       listdata: action.data
     };
+  case constant.of('destroy'):
+    _.remove(state.listdata, item => {
+      return item.id == action.data.id
+    })
+    return {
+      ...state
+    }
   default :
     return state;
   }

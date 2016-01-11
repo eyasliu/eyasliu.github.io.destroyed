@@ -7,10 +7,14 @@ export default class List extends React.Component {
   }
 
   render() {
+    console.log(this.props);
+    const list = this.props.data;
     return (
 <div>
   <div className="list-group">
-    {util.renderList(this.props.data, item => <Item key={'post-' + item.ID} data={item} />)}
+    {list.map( item => (
+      <Item key={'post-' + item.id} data={item} />
+    ))}
   </div>
 </div>
     );

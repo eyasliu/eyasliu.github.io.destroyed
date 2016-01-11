@@ -1,5 +1,12 @@
 import style from './item.scss';
+import * as actions from 'admin/actions/list';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
+@connect(
+  state => state,
+  dispath => bindActionCreators(actions, dispath)
+)
 export default class Item extends React.Component {
   constructor(props) {
     super(props);
@@ -7,6 +14,10 @@ export default class Item extends React.Component {
 
   static defaultProps = {
     data: {}
+  }
+
+  delPost(e) {
+    this.props.destroy(this.props.data.id);
   }
 
   render() {
@@ -21,7 +32,7 @@ export default class Item extends React.Component {
     <a href={"#/admin/edit/" + item.id} className={cx(style.edit, 'btn', 'btn-xs', 'btn-primary')}>
       <i className="fa fa-edit"></i>
     </a>
-    <a href="#/admin/edit" className={cx(style.delete, 'btn', 'btn-xs', 'btn-danger')}>
+    <a href="#/admin" onClick={::this.delPost} className={cx(style.delete, 'btn', 'btn-xs', 'btn-danger')}>
       <i className="fa fa-trash"></i>
     </a>
   </div>

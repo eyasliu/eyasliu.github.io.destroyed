@@ -23,6 +23,11 @@ export default function edit(state = initState, action) {
       ...state,
       itemdata: {}
     };
+  case constant.of('SAVE'):
+    return {
+      ...state,
+      itemdata: action.data[0]
+    };
     
   default :
     return state;

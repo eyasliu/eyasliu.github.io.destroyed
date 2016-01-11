@@ -49,10 +49,11 @@ module.exports.routes = {
   'post /auth/login': 'AuthController.login',
 
   // posts api
-  'post /post/create': 'PostsController.create',
-  '/post/list': 'PostController.list',
+  'post /post/create': 'PostController.create',
+  'get /post/list': 'PostController.list',
   'post /post/remove': 'PostController.remove',
-  '/post/detail/:id': 'PostController.detail',
+  'get /post/detail/:id': 'PostController.detail',
+  'put /post/update': 'PostController.update',
 
 
   /*user routing*/

@@ -15,11 +15,12 @@ import Loading from 'common/components/loading';
 export default class List extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.props.fetchList();
   }
 
   render() {
+    const {listdata} = this.props;
+    console.log(listdata);
     return (
 <div className={style.list}>
   <div className="panel panel-default">
@@ -28,7 +29,7 @@ export default class List extends React.Component {
     </div>
     <div className="panel-body">
       <Header />
-      {this.props.listdata.length ? <ListView data={this.props.listdata} /> : <Loading />}
+      {listdata.length ? <ListView data={listdata} /> : <Loading />}
     </div>
   </div>
 </div>

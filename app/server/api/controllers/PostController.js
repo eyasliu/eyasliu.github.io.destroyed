@@ -19,7 +19,7 @@ module.exports = {
   },
   detail(req, res){
     let id = parseInt(req.params.id);
-    Post.findOne({id:1}).exec((err, post) => {
+    Post.findOne({id}).exec((err, post) => {
       res.json(err || post);
     });
   },

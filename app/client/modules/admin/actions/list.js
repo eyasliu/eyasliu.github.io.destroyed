@@ -10,6 +10,20 @@ export function fetchList() {
           type: constant.GETLIST,
           data: res.body
         });
+      }
+    );
+  };
+}
+
+export function destroy(id) {
+  return dispatch => {
+    request
+    .delete(config.server + '/post/' + id)
+    .end((err, res) => {
+      dispatch({
+        type: constant.Destroy,
+        data: res.body
       });
+    });
   };
 }

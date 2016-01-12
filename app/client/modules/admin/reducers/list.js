@@ -12,13 +12,17 @@ export default function list(state = initState, action) {
       ...state,
       listdata: action.data
     };
-  case constant.of('destroy'):
+  case constant.of('Destroy'):
     _.remove(state.listdata, item => {
-      return item.id == action.data.id
+      console.log('=====>',item,action)
+      return item.id == action.data.id;
     })
+    console.log(state)
     return {
       ...state,
-      listdata: state.listdata;
+      listdata: [
+        ...state.listdata
+      ]
     }
   default :
     return state;

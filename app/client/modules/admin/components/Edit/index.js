@@ -73,7 +73,9 @@ export default class Edit extends React.Component {
           <label forHTML="exampleInputPassword1">标签</label>
           <Select
             name="tags"
+            value={item.tags&&item.tags[0].split(',')&&console.log(item.tags[0].split(','))}
             options={options}
+            onChange={::console.log}
             placeholder="请选择文章标签"
             multi allowCreate
             noResultsText="没有该选项"

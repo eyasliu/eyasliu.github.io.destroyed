@@ -17,7 +17,8 @@ export default function list(state = initState, action) {
       return item.id == action.data.id
     })
     return {
-      ...state
+      ...state,
+      listdata: state.listdata;
     }
   default :
     return state;

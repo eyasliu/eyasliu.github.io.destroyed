@@ -20,7 +20,7 @@ export default class PostItem extends React.Component {
             <h3><a href={'#/blog/detail/' + data.id}>{ data.title }</a></h3>
             <div className={style['item-meta']}>
               <span className={style.author}>
-                作者：<a href="javascript:">{data.author.nickname}</a>
+                作者：<a href="javascript:">{data.author.username}</a>
               </span>
               <span className={style.author}>
                 {util.dateFormate(data.date, 'YYYY-MM-DD hh:mm:ss')}

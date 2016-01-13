@@ -4,7 +4,7 @@ const select =  Component => class extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: []
+      value: props.value
     };
   }
 
@@ -15,7 +15,7 @@ const select =  Component => class extends React.Component {
   }
 
   render() {
-    return <Component {...this.props} value={this.state.value} onChange={::this.handlerChange} />;
+    return <Component {...this.props} delimiter=',' value={this.state.value} onChange={::this.handlerChange} />;
   }
 };
 

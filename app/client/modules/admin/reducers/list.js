@@ -14,16 +14,14 @@ export default function list(state = initState, action) {
     };
   case constant.of('Destroy'):
     _.remove(state.listdata, item => {
-      console.log('=====>',item,action)
       return item.id == action.data.id;
-    })
-    console.log(state)
+    });
     return {
       ...state,
       listdata: [
         ...state.listdata
       ]
-    }
+    };
   default :
     return state;
   }

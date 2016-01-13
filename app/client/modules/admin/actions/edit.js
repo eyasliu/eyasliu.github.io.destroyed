@@ -32,11 +32,6 @@ export function create(data){
 }
 
 export function save(data = false) {
-  // console.log('I will save a extis post', data);
-  // return {
-  //   type: constant.SAVE,
-  //   data: data
-  // };
   return dispatch => {
     request.put(config.server + '/post/update')
     .send(data)

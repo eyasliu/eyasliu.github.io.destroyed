@@ -35,7 +35,9 @@ export default class Edit extends React.Component {
 
   submitHandler(e) {
     const formData = formToObj(this.refs.editForm);
-    console.log(this.props);
+    formData.tags = formData.tags.split(',');
+    formData.categorys = formData.categorys.split(',');
+
     if (this.isNew) {
       this.props.create(formData);
     } else {
@@ -63,6 +65,7 @@ export default class Edit extends React.Component {
           <label forHTML="exampleInputPassword1">分类</label>
           <Select
             name="categorys"
+            value={item.categorys}
             options={options}
             placeholder="请选择文章分类"
             multi
@@ -73,7 +76,7 @@ export default class Edit extends React.Component {
           <label forHTML="exampleInputPassword1">标签</label>
           <Select
             name="tags"
-            value={item.tags&&item.tags[0].split(',')&&console.log(item.tags[0].split(','))}
+            value={item.tags}
             options={options}
             onChange={::console.log}
             placeholder="请选择文章标签"

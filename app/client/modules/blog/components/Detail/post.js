@@ -1,4 +1,5 @@
 import { bindActionCreators } from 'redux';
+import marked from 'marked';
 import { connect } from 'react-redux';
 import Loading from 'common/components/loading';
 import * as Actions from 'blog/actions/detail';
@@ -28,7 +29,7 @@ export default class Detail extends React.Component {
             </span>
           </div>
         </header>
-        <section dangerouslySetInnerHTML={{__html: post.content}} className={cx(style.content, 'post-content')}>
+        <section dangerouslySetInnerHTML={{__html: marked(post.content)}} className={cx(style.content, 'post-content')}>
         </section>
         <footer className={style.footer}>
         </footer>

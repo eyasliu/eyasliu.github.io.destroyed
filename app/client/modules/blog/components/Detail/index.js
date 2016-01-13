@@ -31,7 +31,7 @@ export default class Detail extends React.Component {
         [style.detail]: true,
         container: true
       })}>
-        {parseInt(this.props.params.id) === post.ID ? (<Post post={post} />) : (<Loading />) }
+        {parseInt(this.props.params.id) === post.id ? (<Post post={post} />) : (<Loading />) }
       </div>
     );
   }

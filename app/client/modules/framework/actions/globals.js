@@ -21,8 +21,8 @@ export function fetchGlobals() {
             link: 'http://git.oschina.net/yuesong'
           }, {
             id: 3,
-            name: 'Admin',
-            link: '#/admin'
+            name: '登录',
+            link: '#/auth'
           }
         ]
       }

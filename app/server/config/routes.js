@@ -55,6 +55,10 @@ module.exports.routes = {
   'get /post/detail/:id': 'PostController.detail',
   'put /post/update': 'PostController.update',
 
+  // auth 
+  'post /auth/login': 'AuthController.login',
+  'post /auth/signin': 'AuthController.signin',
+
 
   /*user routing*/
   '/user/list': 'UserController.list',

@@ -15,7 +15,8 @@ module.exports = {
       unique: true
     },
     password: {
-      type: 'string'
+      type: 'string',
+      protected: true
     },
     activity: {
       type: 'boolean',
@@ -29,6 +30,16 @@ module.exports = {
       collection: 'post',
       via: 'author'
     }
+  },
+
+  beforeCreate(vals, cb) {
+    vals.password = Encrypt.hash(vals.password);
+    cb();
   }
+
 };
+
+function hashPasswd(passwd){
+  return 
+}
 

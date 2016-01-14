@@ -14,19 +14,18 @@ module.exports = {
    */
   login: function (req, res) {
     User.create({
-      id: 3,
-      username: 'liuyuesong',
+      username: 'eyas',
       password: 'iuyuesong',
       email: 'iuyuesong@163.com',
       activity: true,
-      description:'iiiiifdsfdsfdsfs',
-      createdAt: (new Date).getTime(),
-      updatedAt: (new Date).getTime()
+      description:'iiiiifdsfdsfdsfs'
     }).exec(function(err, val){
       console.log('create:',val,err);
     })
+
+    
     return res.json({
-      todo: 'login() is not implemented yet!'
+      todo: Encrypt.hash('admin','34')
     });
   },
 
@@ -38,6 +37,16 @@ module.exports = {
     return res.json({
       todo: 'logout() is not implemented yet!'
     });
+  },
+
+  /*
+   * signin
+   */
+  signin(req, res){
+    return res.json({
+      todo: 'waiting implemented'
+    })
   }
+
 };
 

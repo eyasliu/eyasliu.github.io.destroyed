@@ -4,7 +4,7 @@ module.exports = shipit => {
   require('shipit-deploy')(shipit);
   shipit.initConfig({
     default: {
-      workspace: path.join(__dirname, '../deploy'),
+      workspace: path.join(__dirname, './deploy'),
       deployTo: '/home/eyas/www/default',
       repositoryUrl: 'git@git.oschina.net:yuesong/startkit-app.git',
       branch: 'master',

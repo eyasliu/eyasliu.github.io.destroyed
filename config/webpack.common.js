@@ -3,7 +3,7 @@ import path from 'path';
 
 const commonConfig = {
   resolve: {
-    root: path.join(__dirname, 'bower_components'),
+    // root: path.join(__dirname, 'bower_components'),
     extensions: ['', '.js', '.jsx', '.css', '.scss'],
     alias: {
       client: path.join(__dirname, '../app/client'),
@@ -63,9 +63,9 @@ const commonConfig = {
     //   filename: 'vendor.js'
     // }),
     // bower 文件
-    new webpack.ResolverPlugin(
-      new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])
-    ),
+    // new webpack.ResolverPlugin(
+    //   new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])
+    // ),
     // 全局变量
     new webpack.ProvidePlugin({
       $: 'jquery',

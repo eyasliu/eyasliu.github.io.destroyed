@@ -26,7 +26,7 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+  // '*': ['basicAuth', 'passport', 'sessionAuth'],
 
   /***************************************************************************
   *                                                                          *
@@ -49,6 +49,7 @@ module.exports.policies = {
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
   PostController: {
-    create: true
+    create: ['passport'],
+    update: ['passport'],
   }
 };

@@ -57,7 +57,7 @@ module.exports.routes = {
 
   // auth 
   'post /auth/login': 'AuthController.login',
-  'post /auth/signin': 'AuthController.signin',
+  'post /auth/signup': 'AuthController.signup',
 
 
   /*user routing*/

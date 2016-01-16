@@ -1,11 +1,11 @@
 import {compose, combineReducers} from 'redux';
 import login from './login';
-import signin from './signin';
+import signup from './signup';
 
 
 const reducers = combineReducers({
   login,
-  signin
+  signup
 });
 
 export default reducers;

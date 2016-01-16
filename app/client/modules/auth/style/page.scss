@@ -1,0 +1,13 @@
+.form{
+  max-width: 500px;
+  margin:0 auto;
+}
+.form-action button{
+  margin-right: 10px;
+}
+.message{
+	min-height: 52px;
+	:global(.alert-none){
+		display: none;
+	}
+}

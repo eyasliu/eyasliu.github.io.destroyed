@@ -1,4 +1,5 @@
 import Login from '../Login';
+import style from './style.scss';
 
 export default class APPModule extends React.Component {
   constructor() {
@@ -8,7 +9,11 @@ export default class APPModule extends React.Component {
   render() {
     return (
       <div className="authModule">
-        {this.props.children || <Login />}
+        <div className={style.login}>
+          <div className={style.container}>
+            {this.props.children || <Login />}
+          </div>
+        </div>
       </div>
     );
   }

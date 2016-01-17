@@ -1,12 +1,23 @@
 import passport from 'passport';
 import {Strategy as LocalStrategy} from 'passport-local';
+
 let methods = ['login', 'logIn', 'logout', 'logOut', 'isAuthenticated', 'isUnauthenticated'];
+
+function findByUsername(name, cb){
+  User.findOne({username: name})
+  .exec((err, user) => {
+    console.log(err, user);
+    // if(err) return cb(null, null);
+    // else return
+    return cb(err, user);
+  })
+}
 
 passport.use(new LocalStrategy({},
   function(username, password, done) {
-  	sails.log(username,password);
-    User.findByUsername({ username: username }, function(err, user) {
-    	console.log(user);
+  	sails.log('============================',username,password);
+    findByUsername(username, function(err, user) {
+    	console.log(err, user);
       if (err) { return done(err); }
       if (!user) {
         return done(null, false, { message: 'Incorrect username.' });
@@ -22,20 +33,22 @@ passport.use(new LocalStrategy({},
 
 module.exports = function(req, res, next){
 	// console.log('now will be auth bt passport');
-	passport.initialize()(req, res, function () {
-    // Use the built-in sessions
-    passport.session()(req, res, function () {
-      // Make the user available throughout the frontend
-      res.locals.user = req.user;
-      // Make the request's passport methods available for socket
-      if (req.isSocket) {
-        for (let i = 0; i < methods.length; i++) {
-          req[methods[i]] = http.IncomingMessage.prototype[methods[i]].bind(req);
-        }
-      }
-      next();
-    });
-  });
+	// passport.initialize()(req, res, function () {
+ //    // Use the built-in sessions
+ //    passport.session()(req, res, function () {
+ //      // Make the user available throughout the frontend
+ //      res.locals.user = req.user;
+ //      // Make the request's passport methods available for socket
+ //      if (req.isSocket) {
+ //        for (let i = 0; i < methods.length; i++) {
+ //          req[methods[i]] = http.IncomingMessage.prototype[methods[i]].bind(req);
+ //        }
+ //      }
+ //      next();
+ //    });
+ //  });
+
+  // 
 	passport.authenticate('local', (err, user, info)=>{
 		// console.log(err, user, info);
 		if(err){

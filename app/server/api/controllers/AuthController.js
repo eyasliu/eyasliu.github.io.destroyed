@@ -13,27 +13,9 @@ module.exports = {
    * `AuthController.login()`
    */
   login: function (req, res) {
-    // console.log(req.body);
-    // User.find({username: req.body.username}).exec((err, user) => {
-    //   if(user.length){
-    //     res.json({
-    //       message: ''
-    //     })
-    //   }
-    // })
-    // User.create({
-    //   username: 'eyas',
-    //   password: 'iuyuesong',
-    //   email: 'iuyuesong@163.com',
-    //   activity: true,
-    //   description:'iiiiifdsfdsfdsfs'
-    // }).exec(function(err, val){
-    //   console.log('create:',val,err);
-    // })
 
-    
     return res.json({
-      todo: 'jhahah'
+      todo: req.body
     });
   },
 

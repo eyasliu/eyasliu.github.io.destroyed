@@ -51,14 +51,7 @@ module.exports = {
     })
   },
 
-  findByUsername(name, cb){
-    this.findOne({username: name})
-    .exec((err, user) => {
-      // if(err) return cb(null, null);
-      // else return
-      return cb(err, user);
-    })
-  }
+  
 
 
 };

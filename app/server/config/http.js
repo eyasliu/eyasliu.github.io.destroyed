@@ -22,6 +22,18 @@ module.exports.http = {
   ****************************************************************************/
 
   middleware: {
+  /****************************************************************************
+  *                                                                           *
+  * Example custom middleware; logs each request to the console.              *
+  *                                                                           *
+  ****************************************************************************/
+
+    // myRequestLogger: function (req, res, next) {
+    //     console.log("Requested :: ", req.method, req.url);
+    //     return next();
+    // },
+    passportInit: require('passport').initialize(),
+    passportSession: require('passport').session(),
 
   /***************************************************************************
   *                                                                          *
@@ -29,6 +41,7 @@ module.exports.http = {
   * router is invoked by the "router" middleware below.)                     *
   *                                                                          *
   ***************************************************************************/
+
 
     order: [
       'startRequestTimer',
@@ -50,18 +63,9 @@ module.exports.http = {
       '500'
     ],
 
-  /****************************************************************************
-  *                                                                           *
-  * Example custom middleware; logs each request to the console.              *
-  *                                                                           *
-  ****************************************************************************/
+    
 
-    // myRequestLogger: function (req, res, next) {
-    //     console.log("Requested :: ", req.method, req.url);
-    //     return next();
-    // },
-    passportInit: require('passport').initialize(),
-    passportSession: require('passport').session(),
+    
 
 
   /***************************************************************************
@@ -76,6 +80,10 @@ module.exports.http = {
     // bodyParser: require('skipper')
 
   },
+
+  customMiddleware: app => {
+
+  }
 
   /***************************************************************************
   *                                                                          *

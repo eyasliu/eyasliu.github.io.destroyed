@@ -13,14 +13,14 @@ module.exports = {
    * `AuthController.login()`
    */
   login: function (req, res) {
-    console.log(req.body);
-    User.find({username: req.body.username}).exec((err, user) => {
-      if(user.length){
-        res.json({
-          message: ''
-        })
-      }
-    })
+    // console.log(req.body);
+    // User.find({username: req.body.username}).exec((err, user) => {
+    //   if(user.length){
+    //     res.json({
+    //       message: ''
+    //     })
+    //   }
+    // })
     // User.create({
     //   username: 'eyas',
     //   password: 'iuyuesong',
@@ -33,7 +33,7 @@ module.exports = {
 
     
     return res.json({
-      todo: Encrypt.hash('admin','34')
+      todo: 'jhahah'
     });
   },
 

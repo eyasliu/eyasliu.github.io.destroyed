@@ -1,4 +1,6 @@
+
+
 module.exports = function(req, res, next){
-	console.log(req,res);
+	console.log('now will be auth bt passport');
 	return next();
 }

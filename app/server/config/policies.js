@@ -49,7 +49,12 @@ module.exports.policies = {
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
   PostController: {
-    create: ['passport'],
-    update: ['passport'],
-  }
+    create: ['isAuthenticated'],
+    update: ['isAuthenticated'],
+    remove: ['isAuthenticated'],
+  },
+  AuthController: {
+    logout: ['isAuthenticated'],
+    login: ['Passport']
+  },
 };

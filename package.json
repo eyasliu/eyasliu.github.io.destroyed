@@ -21,8 +21,6 @@
     "marked": "^0.3.3",
     "moment": "^2.10.6",
     "normalize.css": "^3.0.3",
-    "passport": "^0.3.2",
-    "passport-local": "^1.0.0",
     "react": "^0.14.2",
     "react-ace": "^3.0.0",
     "react-constant": "^1.2.2",

@@ -16,17 +16,26 @@ function findByUsername(name, cb){
 passport.use(new LocalStrategy({},
   function(username, password, done) {
   	sails.log('============================',username,password);
-    findByUsername(username, function(err, user) {
-    	console.log(err, user);
-      if (err) { return done(err); }
-      if (!user) {
-        return done(null, false, { message: 'Incorrect username.' });
-      }
-      // if (!user.validPassword(password)) {
-      //   return done(null, false, { message: 'Incorrect password.' });
-      // }
-      return done(null, user);
-    });
+  	User.findOne({username: username}).exec((err, user) => {
+  		console.log(err, user);
+  		if(err) {
+  			return done(err);
+  		}
+  		if(!user) {
+  			return done(null, false, {
+  				message: 'no this user'
+  			});
+  		}
+  		if(Encrypt.hash(password) === user.password){
+  			return done(null, user, {
+  				message: 'login success'
+  			});
+  		}else{
+  			return done(null, false, {
+  				message: 'password error'
+  			})
+  		}
+  	})
   }
 ));
 
@@ -49,14 +58,5 @@ module.exports = function(req, res, next){
  //  });
 
   // 
-	passport.authenticate('local', (err, user, info)=>{
-		// console.log(err, user, info);
-		if(err){
-			return next(err);
-		}
-		if(user){
-			return next(user);
-		}
-		return next();
-	})(req, res, next);
+	return next();
 }

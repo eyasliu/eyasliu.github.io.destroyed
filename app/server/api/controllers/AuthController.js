@@ -1,3 +1,4 @@
+import passport from 'passport';
 /**
  * AuthController
  *
@@ -13,10 +14,37 @@ module.exports = {
    * `AuthController.login()`
    */
   login: function (req, res) {
-
-    return res.json({
-      todo: req.body
-    });
+    passport.authenticate('local', (err, user, info)=>{
+      console.log(err, user, info);
+      if(err){
+        return res.json({
+          status: 401,
+          message: err
+        });
+      }
+      if(!user){
+        return res.json({
+          status: 401,
+          message: '没有该用户'
+        });
+      }
+      res.logIn(user, err => {
+        if(err){
+          return res.json({
+            status: 401,
+            message: '写入错误',
+          });
+        }
+        return res.json({
+          status: 200,
+          message: '登陆成功'
+        })
+      })
+      // return res.json({
+      //   status: 200,
+      //   message: '登陆成功'
+      // });
+    })(req, res);
   },
 
 

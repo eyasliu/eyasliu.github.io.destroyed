@@ -19,25 +19,25 @@ module.exports = {
       if(err){
         return res.json({
           status: 401,
-          message: err
+          message: info.message
         });
       }
       if(!user){
         return res.json({
           status: 401,
-          message: '没有该用户'
+          message: info.message
         });
       }
-      res.logIn(user, err => {
+      req.logIn(user, err => {
         if(err){
           return res.json({
             status: 401,
-            message: '写入错误',
+            message: err
           });
         }
         return res.json({
           status: 200,
-          message: '登陆成功'
+          message: info.message
         })
       })
       // return res.json({

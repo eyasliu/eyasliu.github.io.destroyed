@@ -17,11 +17,11 @@ module.exports = {
       type: 'string',
       required: true,
       protected: true,
-      toJSON(){
-        const obj = this.toObject();
-        delete obj.password;
-        return obj;
-      }
+      // toJSON(){
+      //   const obj = this.toObject();
+      //   delete obj.password;
+      //   return obj;
+      // }
     },
     activity: {
       type: 'boolean',

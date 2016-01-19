@@ -15,26 +15,23 @@ module.exports = {
    */
   login: function (req, res) {
     passport.authenticate('local', (err, user, info)=>{
-      console.log(err, user, info);
       if(err){
-        return res.json({
-          status: 401,
+        return res.unauthorized({
           message: info.message
         });
       }
       if(!user){
-        return res.json({
-          status: 401,
+        return res.unauthorized({
           message: info.message
         });
       }
-      req.logIn(user, err => {
+      req.login(user, err => {
         if(err){
-          return res.json({
-            status: 401,
+          return res.unauthorized({
             message: err
           });
         }
+        console.log('aaaaaaaaaaa', req.isAuthenticated());
         return res.json({
           status: 200,
           message: info.message

@@ -11,30 +11,33 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-passport.use(new LocalStrategy({},
-  function(username, password, done) {
-  	User.findOne({username: username}).exec((err, user) => {
-  		if(err) {
-  			return done(err);
-  		}
-  		if(!user) {
-  			return done(null, false, {
-  				message: 'no this user'
-  			});
-  		}
-  		if(Encrypt.hash(password) === user.password){
-  			return done(null, user, {
-  				message: 'login success'
-  			});
-  		}else{
-  			return done(null, false, {
-  				message: 'password error'
-  			})
-  		}
-  	})
-  }
-));
 
+
+
+function strategy(username, password, done){
+	User
+	.findOne({username: username})
+	.exec((err, user) => {
+		if(err) {
+			return done(err);
+		}
+		if(!user) {
+			return done(null, false, {
+				message: 'no this user'
+			});
+		}
+		if(Encrypt.hash(password) === user.password){
+			return done(null, user, {
+				message: 'login success'
+			});
+		}else{
+			return done(null, false, {
+				message: 'password error'
+			})
+		}
+	})
+}
+passport.use(new LocalStrategy(strategy));
 
 module.exports = function(req, res, next){
 	return next();

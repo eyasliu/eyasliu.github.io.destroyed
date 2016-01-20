@@ -24,7 +24,6 @@ module.exports = {
     });
   },
   update(req, res){
-    console.log(req);
     let id = parseInt(req.body.id); 
     Post.update({id}, req.body).exec((err, post) => {
       res.json(post);

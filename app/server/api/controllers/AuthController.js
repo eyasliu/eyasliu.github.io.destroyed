@@ -31,7 +31,6 @@ module.exports = {
             message: err
           });
         }
-        console.log('aaaaaaaaaaa', req.isAuthenticated());
         return res.json({
           status: 200,
           message: info.message

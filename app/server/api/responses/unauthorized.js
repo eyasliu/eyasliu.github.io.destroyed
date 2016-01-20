@@ -1,5 +1,5 @@
 module.exports = function unauthorized(data){
-	const {req,res} = this;
-	res.states(401);
+	let {req,res} = this;
+	res.status(401);
 	return res.json(data);
 }

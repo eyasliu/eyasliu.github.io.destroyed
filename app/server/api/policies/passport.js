@@ -37,7 +37,9 @@ function strategy(username, password, done){
 		}
 	})
 }
-passport.use(new LocalStrategy(strategy));
+passport.use(new LocalStrategy({
+	session: false
+}, strategy));
 
 module.exports = function(req, res, next){
 	return next();

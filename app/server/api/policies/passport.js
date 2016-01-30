@@ -1,22 +1,23 @@
 import passport from 'passport';
-import {Strategy as LocalStrategy} from 'passport-local';
+import {Strategy as LocalStrategy} from 'passport-jwt';
 
-passport.serializeUser(function(user, done) {
-  done(null, user.id);
-});
+// passport.serializeUser(function(user, done) {
+//   done(null, user.id);
+// });
 
-passport.deserializeUser(function(id, done) {
-  User.findOne({id}, function(err, user) {
-    done(err, user);
-  });
-});
-
-
+// passport.deserializeUser(function(id, done) {
+//   User.findOne({id}, function(err, user) {
+//     done(err, user);
+//   });
+// });
 
 
-function strategy(username, password, done){
+
+
+function strategy(payload, done){
+	console.log(payload);
 	User
-	.findOne({username: username})
+	.findOne({id: payload.sub})
 	.exec((err, user) => {
 		if(err) {
 			return done(err);
@@ -38,7 +39,9 @@ function strategy(username, password, done){
 	})
 }
 passport.use(new LocalStrategy({
-	session: false
+	issuer: 'eyasweb',
+	secretOrKey: 'secret',
+	audience: 'localhost'
 }, strategy));
 
 module.exports = function(req, res, next){

@@ -14,7 +14,7 @@ module.exports = {
    * `AuthController.login()`
    */
   login: function (req, res) {
-    passport.authenticate('local', (err, user, info)=>{
+    passport.authenticate('jwt', {session: false}, (err, user, info)=>{
       if(err){
         return res.unauthorized({
           message: info.message

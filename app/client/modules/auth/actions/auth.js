@@ -8,6 +8,7 @@ export function Login( formdata ) {
   return dispatch => {
     request
     .post(config.server + '/auth/login')
+    .set('Authorization', sessionStorage.getItem('auth')||'mytest')
     .send(formdata)
     .end((err, res) => {
       if(res.status == 200) {

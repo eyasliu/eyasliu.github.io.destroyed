@@ -15,6 +15,7 @@ module.exports = {
    */
   login: function (req, res) {
     passport.authenticate('jwt', {session: false}, (err, user, info)=>{
+      console.log(user);
       if(err){
         return res.unauthorized({
           message: info.message

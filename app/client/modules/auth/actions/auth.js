@@ -6,9 +6,10 @@ const constant = Constant('auth');
 
 export function Login( formdata ) {
   return dispatch => {
+    // fetch(config.server + '/auth/login')
     request
     .post(config.server + '/auth/login')
-    .set('Authorization', sessionStorage.getItem('auth')||'mytest')
+    .set('Authorization', sessionStorage.getItem('auth')||'none.none.none')
     .send(formdata)
     .end((err, res) => {
       if(res.status == 200) {

@@ -1,5 +1,5 @@
 import passport from 'passport';
-import {Strategy as LocalStrategy} from 'passport-jwt';
+import {Strategy as JwtStrategy} from 'passport-jwt';
 
 // passport.serializeUser(function(user, done) {
 //   done(null, user.id);
@@ -38,10 +38,10 @@ function strategy(payload, done){
 		}
 	})
 }
-passport.use(new LocalStrategy({
+passport.use(new JwtStrategy({
 	issuer: 'eyasweb',
 	secretOrKey: 'secret',
-	audience: 'localhost'
+	// audience: 'localhost'
 }, strategy));
 
 module.exports = function(req, res, next){

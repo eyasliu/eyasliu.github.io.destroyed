@@ -9,10 +9,13 @@ export function Login( formdata ) {
     // fetch(config.server + '/auth/login')
     request
     .post(config.server + '/auth/login')
-    .set('Authorization', sessionStorage.getItem('auth')||'none.none.none')
+    .set('Authorization', 'JWT ' + (sessionStorage.getItem('auth') || 'none'))
     .send(formdata)
     .end((err, res) => {
       if(res.status == 200) {
+        if(res.body.token){
+          sessionStorage.setItem('token',res.body.token)
+        }
         // console.log(history);
         // history.pushState({the: 'state'}, '#/admin');
       }else{

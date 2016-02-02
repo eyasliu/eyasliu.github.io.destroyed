@@ -14,11 +14,11 @@ module.exports = {
    * `AuthController.login()`
    */
   login: function (req, res) {
-    passport.authenticate('jwt', {session: false}, (err, user, info)=>{
-      console.log(user);
+    passport.authenticate('local', {session: false}, (err, user, info)=>{
+      console.log('login:',err, user, info);
       if(err){
         return res.unauthorized({
-          message: info.message
+          message: 'have an error'
         });
       }
       if(!user){
@@ -26,17 +26,21 @@ module.exports = {
           message: info.message
         });
       }
-      req.login(user, err => {
-        if(err){
-          return res.unauthorized({
-            message: err
-          });
-        }
-        return res.json({
-          status: 200,
-          message: info.message
-        })
+      return res.json({
+        message: info.message,
+        token: Jwt.encode(user.username)
       })
+      // req.login(user, err => {
+      //   if(err){
+      //     return res.unauthorized({
+      //       message: err
+      //     });
+      //   }
+      //   return res.json({
+      //     status: 200,
+      //     message: info.message
+      //   })
+      // })
       // return res.json({
       //   status: 200,
       //   message: '登陆成功'

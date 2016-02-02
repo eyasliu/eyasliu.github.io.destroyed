@@ -5,12 +5,12 @@ const initState = {
 
 export default function globals(state = initState, action) {
   switch (action.type) {
-  case 'FEACTGLOBALS':
-    return {
-      ...state,
-      ...action.data
-    };
-  default:
-    return state;
+    case 'FEACTGLOBALS':
+      return {
+        ...state,
+        ...action.data
+      };
+    default:
+      return state;
   }
 }

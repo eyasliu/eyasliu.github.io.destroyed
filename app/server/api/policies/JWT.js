@@ -15,35 +15,37 @@ import {Strategy as JwtStrategy} from 'passport-jwt';
 
 
 function strategy(payload, done){
-	console.log(payload);
+	console.log('payload',payload);
 	User
-	.findOne({id: payload.sub})
+	.findOne({username: payload.username})
 	.exec((err, user) => {
 		if(err) {
-			return done(err);
+			return done(err, false);
 		}
 		if(!user) {
 			return done(null, false, {
 				message: 'no this user'
 			});
 		}
-		if(Encrypt.hash(password) === user.password){
-			return done(null, user, {
-				message: 'login success'
-			});
-		}else{
-			return done(null, false, {
-				message: 'password error'
-			})
-		}
+
+		return done(null, user, {
+			message: 'password error'
+		})
+
 	})
 }
 passport.use(new JwtStrategy({
-	issuer: 'eyasweb',
-	secretOrKey: 'secret',
-	// audience: 'localhost'
+	secretOrKey: 'secret'
 }, strategy));
 
-module.exports = function(req, res, next){
-	return next();
+
+module.exports = function(req,res,next){
+	passport.authenticate('jwt', { session: false}, (err, user, info) => {
+		if(err || !user){
+	    return res.unauthorized({
+	      message: info.toString()
+	    });
+	  }
+	 	return next();
+	})(req,res,next)
 }

@@ -26,8 +26,8 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': ['basicAuth', 'passport', 'sessionAuth'],
-
+  // '*': ['JWT'],
+  
   /***************************************************************************
   *                                                                          *
   * Here's an example of mapping some policies to run before a controller    *
@@ -49,12 +49,12 @@ module.exports.policies = {
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
   PostController: {
-    create: ['isAuthenticated'],
-    update: ['isAuthenticated'],
-    remove: ['isAuthenticated'],
+    create: ['JWT'],
+    update: ['JWT'],
+    remove: ['JWT'],
   },
   AuthController: {
-    logout: ['isAuthenticated'],
-    login: ['Passport']
+    
+    login: ['LocalAuth']
   },
 };

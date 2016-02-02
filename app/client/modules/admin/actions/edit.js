@@ -20,6 +20,7 @@ export function fetchEditPost(id) {
 export function create(data){
   return dispatch => {
     request.post(config.server + '/post/create')
+      .set('Authorization', 'JWT ' + (sessionStorage.getItem('token') || 'none'))
       .send(data)
       .end((err, res) => {
         dispatch({

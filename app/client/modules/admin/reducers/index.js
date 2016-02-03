@@ -1,4 +1,3 @@
-import {compose, combineReducers} from 'redux';
 import list from './list';
 import edit from './edit';
 

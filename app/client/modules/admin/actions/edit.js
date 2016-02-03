@@ -1,8 +1,5 @@
-import request from 'superagent';
 import toMarkdown from 'to-markdown';
-import {Constant} from 'react-constant';
 const constant = Constant('admin');
-
 
 export function fetchEditPost(id) {
   return dispatch => {
@@ -20,7 +17,6 @@ export function fetchEditPost(id) {
 export function create(data){
   return dispatch => {
     request.post(config.server + '/post/create')
-      .set('Authorization', 'JWT ' + (sessionStorage.getItem('token') || 'none'))
       .send(data)
       .end((err, res) => {
         dispatch({

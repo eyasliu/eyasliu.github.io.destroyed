@@ -1,12 +1,10 @@
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 import * as Actions from 'admin/actions/list';
 
 import style from './style.scss';
 import Item from './Item';
 import ListView from './ListView';
 import Header from './Header';
-import Loading from 'common/components/loading';
+import Loading from 'cc/loading';
 
 @connect(
   state => state.admin.list,

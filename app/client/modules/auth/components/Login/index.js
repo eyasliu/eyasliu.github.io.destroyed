@@ -1,8 +1,5 @@
 import style from 'auth/style/page.scss';
-import formToObj from 'form-to-obj';
-import {connect} from 'react-redux';
 import * as actions from 'auth/actions/auth';
-import {bindActionCreators} from 'redux';
 
 @connect(
   null,

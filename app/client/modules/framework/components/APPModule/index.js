@@ -1,5 +1,3 @@
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 import * as Actions from 'framework/actions/globals';
 import Navbar from '../Navbar';
 import Footer from '../Footer';

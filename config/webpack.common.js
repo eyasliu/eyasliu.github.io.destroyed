@@ -9,12 +9,16 @@ const commonConfig = {
       client: path.join(__dirname, '../app/client'),
       vendor: path.join(__dirname, '../app/client/vendor'),
       common: path.join(__dirname, '../app/client/common'),
+      cc: path.join(__dirname, '../app/client/common/components'),
       modules: path.join(__dirname, '../app/client/modules'),
       utils: path.join(__dirname, '../app/client/utils'),
       framework: path.join(__dirname, '../app/client/modules/framework'),
       blog: path.join(__dirname, '../app/client/modules/blog'),
       admin: path.join(__dirname, '../app/client/modules/admin'),
       auth: path.join(__dirname, '../app/client/modules/auth'),
+
+      request: path.join(__dirname, '../app/client/utils/request'),
+
     }
   },
   output: {
@@ -72,8 +76,18 @@ const commonConfig = {
       jQuery: 'jquery',
       React: 'react',
       ReactDOM: 'react-dom',
+      Constant: 'react-constant',
       cx: 'classname',
-      config: path.join(__dirname, './config')
+      formToObj: 'form-to-obj',
+      _: 'lodash';
+      config: path.join(__dirname, './config'),
+      request: path.join(__dirname, '../app/client/utils/request'),
+      'bindActionCreators': 'redux/lib/utils/bindActionCreators',
+      'combineReducers': 'redux/lib/utils/combineReducers',
+      'compose': 'redux/lib/utils/compose',
+      'connect': 'react-redux/lib/components/connect',
+      'PropTypes': 'react/lib/ReactPropTypes',
+      'Component': 'react/lib/ReactComponent',
     })
   // css 文件单独打包
   // new ExtractTextPlugin('style.css', {

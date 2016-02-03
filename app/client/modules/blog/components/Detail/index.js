@@ -1,6 +1,4 @@
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import Loading from 'common/components/loading';
+import Loading from 'cc/loading';
 import * as Actions from 'blog/actions/detail';
 import Post from './post';
 import style from './style';

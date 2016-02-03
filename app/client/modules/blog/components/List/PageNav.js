@@ -1,6 +1,6 @@
 import style from './style';
 
-export default class PageNav extends React.Component {
+export default class PageNav extends Component {
   constructor() {
     super();
   }

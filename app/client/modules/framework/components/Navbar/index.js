@@ -1,5 +1,4 @@
 import { Link } from 'react-router';
-import { connect } from 'react-redux';
 import style from './style';
 
 // function mapActionToProps(state) {

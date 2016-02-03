@@ -1,7 +1,5 @@
 import style from './item.scss';
 import * as actions from 'admin/actions/list';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 
 @connect(
   state => state,

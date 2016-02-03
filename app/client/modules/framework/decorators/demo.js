@@ -1,4 +1,4 @@
-export default ComposedComponent => class extends React.Component {
+export default ComposedComponent => class extends Component {
   constructor() {
     super();
     this;

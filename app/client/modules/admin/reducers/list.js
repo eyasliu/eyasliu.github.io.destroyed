@@ -1,5 +1,3 @@
-import {Constant} from 'react-constant';
-
 const constant = Constant('admin');
 const initState = {
   listdata: []

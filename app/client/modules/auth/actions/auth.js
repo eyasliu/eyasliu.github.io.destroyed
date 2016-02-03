@@ -1,6 +1,4 @@
-import request from 'superagent';
 import history from 'utils/history';
-import {Constant} from 'react-constant';
 
 const constant = Constant('auth');
 
@@ -14,10 +12,8 @@ export function Login( formdata ) {
     .end((err, res) => {
       if(res.status == 200) {
         if(res.body.token){
-          sessionStorage.setItem('token',res.body.token)
+          sessionStorage.setItem('token', res.body.token);
         }
-        // console.log(history);
-        // history.pushState({the: 'state'}, '#/admin');
       }else{
         console.log('登录错误');
       }

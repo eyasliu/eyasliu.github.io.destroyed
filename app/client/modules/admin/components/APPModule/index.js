@@ -1,7 +1,7 @@
 import style from './style.scss';
 import List from '../List';
 
-export default class APPModule extends React.Component {
+export default class APPModule extends Component {
   constructor() {
     super();
   }

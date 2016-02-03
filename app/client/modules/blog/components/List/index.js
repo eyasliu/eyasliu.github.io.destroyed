@@ -1,11 +1,9 @@
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 import * as Actions from 'blog/actions/list';
 import style from './style';
 import Brand from '../Brand';
 import PostList from './PostList';
 import PageNav from './PageNav';
-import Loading from 'common/components/loading';
+import Loading from 'cc/loading';
 
 function mapActionToProps(state) {
   return {

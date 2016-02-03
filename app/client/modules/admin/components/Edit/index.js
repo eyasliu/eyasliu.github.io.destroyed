@@ -1,11 +1,7 @@
-import MarkdownEditor from 'common/components/MarkdownEditor';
+import MarkdownEditor from 'cc/MarkdownEditor';
 import * as Actions from 'admin/actions/edit';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import Select from 'common/components/Select';
-import formToObj from 'form-to-obj';
-import Loading from 'common/components/loading';
-import _ from 'lodash';
+import Select from 'cc/Select';
+import Loading from 'cc/loading';
 
 const options = [
   { value: 'one', label: 'One' },

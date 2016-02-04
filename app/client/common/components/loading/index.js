@@ -9,7 +9,7 @@ export default class Loading extends React.Component {
   static defaultProps = {
     name: 'line-scale-pulse-out',
     color: '#555'
-  }
+  };
 
   addDivs(animate) {
     const divs = {

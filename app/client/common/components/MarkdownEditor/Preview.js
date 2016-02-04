@@ -18,7 +18,7 @@ export default class Preview extends React.Component {
 
   static defaultProps = {
     text: ''
-  }
+  };
 
   render() {
     const {text} = this.props;

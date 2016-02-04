@@ -10,7 +10,7 @@ export default class Detail extends React.Component {
 
   static defaultProps = {
     post: {}
-  }
+  };
 
   render() {
     const { post } = this.props;

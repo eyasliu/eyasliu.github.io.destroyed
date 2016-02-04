@@ -16,7 +16,7 @@ export default class Editor extends React.Component {
   static defaultProps = {
     preview: 'tab',
     text: ''
-  }
+  };
 
   changeText(newText) {
     console.log(this);

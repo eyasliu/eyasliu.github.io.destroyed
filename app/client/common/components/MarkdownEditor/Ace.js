@@ -15,7 +15,7 @@ export default class Markdown extends React.Component {
 
   static defaultProps = {
     mode: 'markdown',
-  }
+  };
 
   handlerChange(val) {
     console.log(val);

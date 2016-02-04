@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 import style from './style';
+import {connect} from 'react-redux';
 
 // function mapActionToProps(state) {
 //   return {
@@ -17,7 +18,7 @@ export default class Navbar extends React.Component {
 
   static defaultProps = {
     data: []
-  }
+  };
 
   render() {
     const isDetail = this.props.routes.path.indexOf('blog/detail') != -1;

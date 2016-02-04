@@ -8,7 +8,7 @@ export default class PostItem extends React.Component {
 
   static defaultProps = {
     data: {}
-  }
+  };
 
   render() {
     const { data } = this.props;

@@ -4,7 +4,6 @@ import {exec} from 'child_process';
 import del from 'del';
 import nodemon from 'nodemon';
 import webpack from 'webpack';
-import gulpWebpack from 'gulp-webpack';
 import notifier from 'node-notifier';
 import path from 'path';
 import run from 'run-sequence';

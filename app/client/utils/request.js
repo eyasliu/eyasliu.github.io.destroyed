@@ -1,4 +1,4 @@
-import request from 'superagent';
+import superagent from 'superagent-defaults';
 
 const token = (tokenStr) => (req, next) => {
   req.header['authorization '] = 'JWT ' + tokenStr;
@@ -7,4 +7,7 @@ const token = (tokenStr) => (req, next) => {
   });
 };
 
-export default request.use(token(sessionStorage.getItem('token')));
+superagent.use(token(sessionStorage.getItem('token')));
+
+
+export default superagent;

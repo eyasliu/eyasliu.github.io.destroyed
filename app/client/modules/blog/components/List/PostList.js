@@ -8,7 +8,7 @@ export default class PostList extends React.Component {
 
   static defaultProps = {
     data: []
-  }
+  };
 
   render() {
     return (

@@ -12,7 +12,7 @@ export default class Item extends React.Component {
 
   static defaultProps = {
     data: {}
-  }
+  };
 
   delPost(e) {
     this.props.destroy(this.props.data.id);

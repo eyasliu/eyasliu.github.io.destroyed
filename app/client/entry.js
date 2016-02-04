@@ -1,3 +1,5 @@
+window.connect = connect['default']
+
 import AppRouter from './router';
 import 'utils/global';
 

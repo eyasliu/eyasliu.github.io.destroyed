@@ -1,6 +1,7 @@
 import * as Actions from 'framework/actions/globals';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
+import {connect} from 'react-redux';
 
 class APPModule extends React.Component {
   constructor(props) {

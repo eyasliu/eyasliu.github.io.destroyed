@@ -1,6 +1,8 @@
 import webpack from 'webpack';
 import path from 'path';
 
+import {connect} from 'react-redux';
+
 const commonConfig = {
   resolve: {
     // root: path.join(__dirname, 'bower_components'),
@@ -79,15 +81,18 @@ const commonConfig = {
       Constant: 'react-constant',
       cx: 'classname',
       formToObj: 'form-to-obj',
-      _: 'lodash';
+      _: 'lodash',
       config: path.join(__dirname, './config'),
       request: path.join(__dirname, '../app/client/utils/request'),
-      'bindActionCreators': 'redux/lib/utils/bindActionCreators',
-      'combineReducers': 'redux/lib/utils/combineReducers',
-      'compose': 'redux/lib/utils/compose',
-      'connect': 'react-redux/lib/components/connect',
-      'PropTypes': 'react/lib/ReactPropTypes',
-      'Component': 'react/lib/ReactComponent',
+      connect: 'react-redux/lib/components/connect',
+      bindActionCreators: 'redux/lib/bindActionCreators',
+      combineReducers: 'redux/lib/combineReducers',
+      compose: 'redux/lib/compose',
+      PropTypes: 'react/lib/ReactPropTypes',
+      Component: 'react/lib/ReactComponent'
+    }),
+    new webpack.DefinePlugin({
+      VERSION: '0.0.0'
     })
   // css 文件单独打包
   // new ExtractTextPlugin('style.css', {

@@ -12,7 +12,7 @@ export default class Textarea extends React.Component {
     theme: 'monokai',
     mode: 'markdown',
     text: ''
-  }
+  };
 
   componentDidMount() {
     const mycodeMirror = CodeMirror.fromTextArea(this.refs.codemirror, {

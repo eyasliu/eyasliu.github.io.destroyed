@@ -7,7 +7,7 @@ export default class Footer extends React.Component {
 
   static defaultProps = {
     data: {}
-  }
+  };
 
   render() {
     return (

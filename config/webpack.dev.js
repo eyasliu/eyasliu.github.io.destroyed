@@ -29,7 +29,7 @@ module.exports = {
       }
     ]
   },
-  devtool: 'eval',
+  devtool: 'cheap-module-eval-source-map',
   plugins: [
     ...common.plugins,
     new webpack.HotModuleReplacementPlugin()

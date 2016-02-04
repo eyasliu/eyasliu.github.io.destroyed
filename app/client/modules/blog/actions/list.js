@@ -1,14 +1,11 @@
 export function fetchList( id, oldData ) {
   return dispatch => {
-    fetch(config.server + '/post/list')
-      .then(res => {
-        return res.json();
-      })
-      .then( json => {
-        localStorage.setItem('post-list', JSON.stringify(json));
+    request.get(config.server + '/post/list')
+      .end( (err, res) => {
+        localStorage.setItem('post-list', JSON.stringify(res.body));
         !oldData && dispatch({
           type: 'FETCHLIST',
-          data: json
+          data: res.body
         });
       });
   };

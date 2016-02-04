@@ -1,13 +1,17 @@
 import superagent from 'superagent-defaults';
 
-const token = (tokenStr) => (req, next) => {
-  req.header['authorization '] = 'JWT ' + tokenStr;
-  next(null, (res, nextRes) => {
-    nextRes();
-  });
-};
+const request = superagent();
 
-superagent.use(token(sessionStorage.getItem('token')));
+request.set('Authorization', 'JWT ' + (sessionStorage.getItem('auth') || 'none'))
+// const token = (tokenStr) => (req, next) => {
+//   req.header['authorization '] = 'JWT ' + tokenStr;
+//   next(null, (res, nextRes) => {
+//     nextRes();
+//   });
+// };
+// request.use(token(sessionStorage.getItem('auth')));
 
 
-export default superagent;
+
+
+module.exports = request;

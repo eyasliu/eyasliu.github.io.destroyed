@@ -12,7 +12,7 @@ export function Login( formdata ) {
     .end((err, res) => {
       if(res.status == 200) {
         if(res.body.token){
-          sessionStorage.setItem('token', res.body.token);
+          sessionStorage.setItem('auth', res.body.token);
         }
       }else{
         console.log('登录错误');

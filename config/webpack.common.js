@@ -3,6 +3,7 @@ import path from 'path';
 
 import {connect} from 'react-redux';
 
+
 const commonConfig = {
   resolve: {
     // root: path.join(__dirname, 'bower_components'),
@@ -83,16 +84,17 @@ const commonConfig = {
       formToObj: 'form-to-obj',
       _: 'lodash',
       config: path.join(__dirname, './config'),
-      request: path.join(__dirname, '../app/client/utils/request'),
-      connect: 'react-redux/lib/components/connect',
-      bindActionCreators: 'redux/lib/bindActionCreators',
-      combineReducers: 'redux/lib/combineReducers',
-      compose: 'redux/lib/compose',
+      // request: path.join(__dirname, '../app/client/utils/request'),
+      // connect: 'react-redux/lib/components/connect',
+      // bindActionCreators: 'redux/lib/bindActionCreators',
+      // combineReducers: 'redux/lib/combineReducers',
+      // compose: 'redux/lib/compose',
       PropTypes: 'react/lib/ReactPropTypes',
       Component: 'react/lib/ReactComponent'
     }),
     new webpack.DefinePlugin({
       VERSION: '0.0.0'
+
     })
   // css 文件单独打包
   // new ExtractTextPlugin('style.css', {

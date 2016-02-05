@@ -13,7 +13,6 @@ import {connect} from 'react-redux';
 export default class Navbar extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
   }
 
   static defaultProps = {

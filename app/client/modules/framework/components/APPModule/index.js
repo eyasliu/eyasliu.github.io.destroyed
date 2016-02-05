@@ -3,7 +3,11 @@ import Navbar from '../Navbar';
 import Footer from '../Footer';
 import {connect} from 'react-redux';
 
-class APPModule extends React.Component {
+@connect(
+  state => state.globals,
+  dispatch => bindActionCreators(Actions, dispatch)
+)
+export default class APPModule extends React.Component {
   constructor(props) {
     super(props);
     this.props.fetchGlobals();
@@ -19,12 +23,3 @@ class APPModule extends React.Component {
       );
   }
 }
-function mapActionToProps(state) {
-  return state.globals;
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(Actions, dispatch);
-}
-
-export default connect(mapActionToProps, mapDispatchToProps)(APPModule);

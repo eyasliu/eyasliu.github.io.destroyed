@@ -1,13 +1,14 @@
 export function fetchPost( id, oldData ) {
   return dispatch => {
-    request.get(config.server + '/post/' + id)
-      .end( (err,res) => {
-        localStorage.setItem('post-' + id, JSON.stringify(res.body));
-        !oldData && dispatch({
-          type: 'GETPOST',
-          data: res.body
-        });
+    request
+    .get(config.server + '/post/' + id)
+    .end( (err, res) => {
+      localStorage.setItem('post-' + id, JSON.stringify(res.body));
+      !oldData && dispatch({
+        type: 'GETPOST',
+        data: res.body
       });
+    });
   };
 }
 

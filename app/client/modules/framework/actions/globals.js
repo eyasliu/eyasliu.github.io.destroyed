@@ -1,9 +1,9 @@
-export const FETCH = 'FETCH';
+const constant = Constant('framework');
 
 export function fetchGlobals() {
   return dispatch => {
     dispatch({
-      type: 'FEACTGLOBALS',
+      type: constant.FEACTGLOBALS,
       data: {
         info: {
           description: '这只是一个博客',

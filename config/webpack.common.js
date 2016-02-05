@@ -79,18 +79,8 @@ const commonConfig = {
       jQuery: 'jquery',
       React: 'react',
       ReactDOM: 'react-dom',
-      Constant: 'react-constant',
       cx: 'classname',
-      formToObj: 'form-to-obj',
-      _: 'lodash',
-      config: path.join(__dirname, './config'),
-      // request: path.join(__dirname, '../app/client/utils/request'),
-      // connect: 'react-redux/lib/components/connect',
-      // bindActionCreators: 'redux/lib/bindActionCreators',
-      // combineReducers: 'redux/lib/combineReducers',
-      // compose: 'redux/lib/compose',
-      PropTypes: 'react/lib/ReactPropTypes',
-      Component: 'react/lib/ReactComponent'
+      config: path.join(__dirname, './config')
     }),
     new webpack.DefinePlugin({
       VERSION: '0.0.0'

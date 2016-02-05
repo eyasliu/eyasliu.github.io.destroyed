@@ -5,18 +5,15 @@ import PostList from './PostList';
 import PageNav from './PageNav';
 import Loading from 'cc/loading';
 
-function mapActionToProps(state) {
-  return {
-    ...state.globals.info,
-    list: state.blog.list.data
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(Actions, dispatch);
-}
-
-@connect(mapActionToProps, mapDispatchToProps)
+@connect(
+  state => {
+    return {
+      ...state.globals.info,
+      list: state.blog.list.data
+    };
+  }, 
+  dispatch => bindActionCreators(Actions, dispatch)
+)
 export default class List extends React.Component {
   constructor() {
     super();

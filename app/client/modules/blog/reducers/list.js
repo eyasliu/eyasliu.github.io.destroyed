@@ -1,10 +1,12 @@
+const constant = Constant('blog');
+
 const initState = {
   data: []
 };
 
 export default function list(state = initState, action) {
   switch (action.type) {
-    case 'FETCHLIST':
+    case constant.of('FETCHLIST'):
       return {
         ...state,
         data: action.data

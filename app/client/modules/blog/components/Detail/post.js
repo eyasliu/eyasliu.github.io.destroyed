@@ -3,6 +3,15 @@ import Loading from 'cc/loading';
 import * as Actions from 'blog/actions/detail';
 import style from './style';
 
+@connect(
+  state => {
+    return {
+      ...state.globals.info,
+      post: state.blog.detail.data
+    };
+  }, 
+  dispatch => bindActionCreators(Actions, dispatch)
+)
 export default class Detail extends React.Component {
   constructor(props) {
     super(props);
@@ -35,16 +44,3 @@ export default class Detail extends React.Component {
     );
   }
 }
-
-function mapActionToProps(state) {
-  return {
-    ...state.globals.info,
-    post: state.blog.detail.data
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(Actions, dispatch);
-}
-
-export default connect(mapActionToProps, mapDispatchToProps)(Detail);

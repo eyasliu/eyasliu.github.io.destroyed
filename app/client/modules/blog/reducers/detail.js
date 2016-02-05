@@ -1,11 +1,13 @@
+const constant = Constant('blog');
+
 const initState = {
   data: {}
 };
 
 export default function post(state = initState, action) {
   switch (action.type) {
-    case 'FETCHPOST':
-    case 'GETPOST':
+    case constant.of('FETCHPOST'):
+    case constant.of('GETPOST'):
       return {
         ...state,
         data: action.data

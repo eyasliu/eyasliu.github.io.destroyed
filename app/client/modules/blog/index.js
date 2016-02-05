@@ -1,6 +1,6 @@
 import APPModule from './components/APPModule';
 
-export default class Blog extends React.Component {
+export default class Blog extends Component {
   constructor() {
     super();
   }

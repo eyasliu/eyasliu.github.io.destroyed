@@ -1,3 +1,5 @@
+const constant = Constant('blog');
+
 export function fetchPost( id, oldData ) {
   return dispatch => {
     request
@@ -5,7 +7,7 @@ export function fetchPost( id, oldData ) {
     .end( (err, res) => {
       localStorage.setItem('post-' + id, JSON.stringify(res.body));
       !oldData && dispatch({
-        type: 'GETPOST',
+        type: constant.GETPOST,
         data: res.body
       });
     });
@@ -23,7 +25,7 @@ export function getPost( id ) {
 
     if (postData) {
       dispatch({
-        type: 'GETPOST',
+        type: constant.GETPOST,
         data: postData
       });
     }
@@ -35,7 +37,7 @@ export function getPost( id ) {
 export function toDetail(id) {
   return dispatch => {
     dispatch({
-      type: 'LINKTODETAIL',
+      type: constant.LINKTODETAIL,
       id: id
     });
   };

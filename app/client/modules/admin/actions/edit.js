@@ -3,7 +3,8 @@ const constant = Constant('admin');
 
 export function fetchEditPost(id) {
   return dispatch => {
-    request(config.server + '/post/detail/' + id)
+    request
+      .get(config.server + '/post/detail/' + id)
       .end((err, res) => {
         res.body.content = toMarkdown(res.body.content);
         dispatch({
@@ -16,15 +17,16 @@ export function fetchEditPost(id) {
 
 export function create(data){
   return dispatch => {
-    request.post(config.server + '/post/create')
-      .send(data)
-      .end((err, res) => {
-        dispatch({
-          type: constant.CREATE,
-          data: res.body
-        });
-        window.location.hash = '#/admin';
+    request
+    .post(config.server + '/post/create')
+    .send(data)
+    .end((err, res) => {
+      dispatch({
+        type: constant.CREATE,
+        data: res.body
       });
+      window.location.hash = '#/admin';
+    });
   };
 }
 

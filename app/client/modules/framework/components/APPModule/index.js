@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
   state => state.globals,
   dispatch => bindActionCreators(Actions, dispatch)
 )
-export default class APPModule extends React.Component {
+class APPModule extends React.Component {
   constructor(props) {
     super(props);
     this.props.fetchGlobals();
@@ -23,3 +23,5 @@ export default class APPModule extends React.Component {
       );
   }
 }
+
+export default APPModule;

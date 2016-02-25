@@ -23,7 +23,6 @@ export default class Edit extends React.Component {
     this.isNew = props.routing.path === '/admin/new';
     !this.isNew && props.fetchEditPost(props.routeParams.id);
 
-    console.log(props);
     this.state = {
       isReady: this.isNew || (props.routeParams.id == props.item.id)
     };

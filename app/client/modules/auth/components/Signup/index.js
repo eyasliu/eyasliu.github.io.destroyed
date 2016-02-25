@@ -25,7 +25,7 @@ export default class Signup extends React.Component{
 
   render(){
     const {message} = this.props;
-    console.log(message);
+
     return (
       <form action="#" onSubmit={::this.handlerSubmit} ref="loginForm" className={cx(style.form, 'form-horizontal')}>
         <div className="form-group">

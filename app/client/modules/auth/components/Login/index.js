@@ -12,7 +12,7 @@ export default class Login extends React.Component{
 
   handlerSubmit(e){
     const formData = formToObj(this.refs.loginForm);
-    console.log(formData);
+
     this.props.Login(formData);
     e.preventDefault();
   }
@@ -47,6 +47,9 @@ export default class Login extends React.Component{
             <input className="btn btn-default" type="reset" value="重置"/>
             <a href="#/auth/signup" className="btn btn-link">注册</a>
           </div>
+        </div>
+        <div className={style.message}>
+          <div className={cx('alert', 'alert-' + message.type)} role="alert">{message.text}</div>
         </div>
       </form>
     );

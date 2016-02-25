@@ -29,7 +29,7 @@ module.exports.connections = {
     adapter: 'waterline-sqlite3',
     type: 'disk',
     filename: path.join(__dirname, './database/eyasliu.sqlite'),
-    // debug: true
+    debug: false
   },
 
 

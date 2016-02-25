@@ -7,7 +7,6 @@ export default class List extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     const list = this.props.data;
     return (
 <div>
